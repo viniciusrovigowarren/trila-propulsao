@@ -13,7 +13,9 @@ class BodyHome extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: const [
-          TopPageWalletEye(),
+          TopPageWalletEye(
+            totalBalance: 1000,
+          ),
           DetailsCoins(
             currentPrice: 0.00,
             initialsCoin: 'ETH',
@@ -21,7 +23,7 @@ class BodyHome extends StatelessWidget {
             variation: 75,
           ),
           DetailsCoins(
-            currentPrice: 1.00000,
+            currentPrice: 1000,
             initialsCoin: 'BTC',
             nameCoin: 'Bitcoin',
             variation: 75,

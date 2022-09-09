@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TopPageWalletEye extends StatefulWidget {
+  final double totalBalance;
   const TopPageWalletEye({
     Key? key,
+    required this.totalBalance,
   }) : super(key: key);
 
   @override
@@ -31,7 +34,10 @@ class _TopPageWalletEyeState extends State<TopPageWalletEye> {
             children: [
               const Text(
                 'Carteira',
-                style: TextStyle(fontSize: 32),
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
               IconButton(
                 padding: EdgeInsets.zero,
@@ -49,13 +55,21 @@ class _TopPageWalletEyeState extends State<TopPageWalletEye> {
           child: Row(
             children: [
               const Text(
-                'US\$ ',
-                style: TextStyle(fontSize: 32),
+                'US ',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
               visibility == false
-                  ? const Text(
-                      '1.000,00',
-                      style: TextStyle(fontSize: 32),
+                  ? Text(
+                      NumberFormat.simpleCurrency(
+                              locale: 'en_US', decimalDigits: 2)
+                          .format(widget.totalBalance),
+                      style: const TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.w700,
+                      ),
                     )
                   : Container(
                       decoration: BoxDecoration(

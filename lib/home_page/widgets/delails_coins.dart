@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class DetailsCoins extends StatelessWidget {
+class DetailsCoins extends StatefulWidget {
   final double currentPrice;
   final double variation;
   final String nameCoin;
@@ -16,6 +17,11 @@ class DetailsCoins extends StatelessWidget {
     this.iconCoin,
   }) : super(key: key);
 
+  @override
+  State<DetailsCoins> createState() => _DetailsCoinsState();
+}
+
+class _DetailsCoinsState extends State<DetailsCoins> {
   @override
   Widget build(BuildContext context) {
     final sizeWidth = MediaQuery.of(context).size.width;
@@ -48,10 +54,10 @@ class DetailsCoins extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(initialsCoin),
+                  Text(widget.initialsCoin),
                   SizedBox(height: sizeHeight * 0.01),
                   Text(
-                    nameCoin,
+                    widget.nameCoin,
                     style: const TextStyle(
                       color: Color.fromARGB(255, 117, 118, 128),
                       fontSize: 17,
@@ -70,13 +76,15 @@ class DetailsCoins extends StatelessWidget {
                 Row(
                   children: [
                     const Text(
-                      'US\$ ',
+                      'US ',
                       style: TextStyle(
                         fontSize: 17,
                       ),
                     ),
                     Text(
-                      currentPrice.toString(),
+                      NumberFormat.simpleCurrency(
+                              locale: 'en_US', decimalDigits: 2)
+                          .format(widget.currentPrice),
                       style: const TextStyle(
                         fontSize: 17,
                       ),
@@ -89,7 +97,7 @@ class DetailsCoins extends StatelessWidget {
                   width: sizeWidth * 0.14,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: variation > 0
+                    color: widget.variation > 0
                         ? const Color.fromARGB(178, 214, 255, 223)
                         : const Color.fromARGB(255, 255, 201, 201),
                   ),
@@ -97,22 +105,22 @@ class DetailsCoins extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Visibility(
-                        visible: variation > 0,
+                        visible: widget.variation > 0,
                         child: Text(
                           '+',
                           style: TextStyle(
                             fontSize: 12,
-                            color: variation > 0
+                            color: widget.variation > 0
                                 ? const Color.fromARGB(255, 12, 95, 44)
                                 : const Color.fromARGB(255, 154, 20, 20),
                           ),
                         ),
                       ),
                       Text(
-                        variation.toString(),
+                        widget.variation.toString(),
                         style: TextStyle(
                           fontSize: 12,
-                          color: variation > 0
+                          color: widget.variation > 0
                               ? const Color.fromARGB(255, 12, 95, 44)
                               : const Color.fromARGB(255, 154, 20, 20),
                         ),
@@ -121,7 +129,7 @@ class DetailsCoins extends StatelessWidget {
                         '%',
                         style: TextStyle(
                           fontSize: 12,
-                          color: variation > 0
+                          color: widget.variation > 0
                               ? const Color.fromARGB(255, 12, 95, 44)
                               : const Color.fromARGB(255, 154, 20, 20),
                         ),
