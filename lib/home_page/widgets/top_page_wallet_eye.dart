@@ -1,7 +1,12 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:trilha_propulsao/core/assets.dart';
 
-class TopPageWalletEye extends StatefulWidget {
+import '../../core/provider.dart';
+
+class TopPageWalletEye extends HookConsumerWidget {
   final double totalBalance;
   const TopPageWalletEye({
     Key? key,
@@ -9,81 +14,76 @@ class TopPageWalletEye extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<TopPageWalletEye> createState() => _TopPageWalletEyeState();
-}
-
-class _TopPageWalletEyeState extends State<TopPageWalletEye> {
-  bool visibility = false;
-
-  void hide() {
-    setState(() {
-      visibility = !visibility;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final visibility = ref.watch(visible.state);
     final sizeWidth = MediaQuery.of(context).size.width;
     final sizeHeight = MediaQuery.of(context).size.width;
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: sizeWidth * 0.06),
-          child: Row(
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: sizeWidth * 0.06,
+        vertical: sizeHeight * 0.02,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                'Carteira',
+              Text(
+                'Cripto',
                 style: TextStyle(
-                  fontSize: 32,
+                  fontSize: sizeHeight * 0.09,
+                  fontFamily: "Montserrat",
                   fontWeight: FontWeight.w700,
+                  color: colorMagenta,
                 ),
               ),
               IconButton(
                 padding: EdgeInsets.zero,
                 constraints: const BoxConstraints(),
-                onPressed: hide,
-                icon: const Icon(
-                  Icons.visibility,
-                ),
+                onPressed: () => visibility.state = !visibility.state,
+                icon: visibility.state == false
+                    ? const Icon(
+                        Icons.visibility,
+                      )
+                    : const Icon(
+                        Icons.visibility_off,
+                      ),
               ),
             ],
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: sizeWidth * 0.06),
-          child: Row(
-            children: [
-              const Text(
-                'US ',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              visibility == false
-                  ? Text(
-                      NumberFormat.simpleCurrency(
-                              locale: 'en_US', decimalDigits: 2)
-                          .format(widget.totalBalance),
-                      style: const TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    )
-                  : Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: const Color.fromARGB(49, 138, 137, 137),
-                      ),
-                      height: sizeHeight * 0.08,
-                      width: sizeWidth * 0.5,
+          !visibility.state
+              ? SizedBox(
+                  width: sizeWidth * 0.6,
+                  child: AutoSizeText(
+                    'R\$ ${NumberFormat.simpleCurrency(locale: 'pt_BR', decimalDigits: 2, name: "").format(totalBalance)}',
+                    style: TextStyle(
+                      fontSize: sizeHeight * 0.08,
+                      fontFamily: "Montserrat",
+                      fontWeight: FontWeight.w700,
                     ),
-            ],
+                    maxLines: 1,
+                  ),
+                )
+              : Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: const Color.fromARGB(49, 138, 137, 137),
+                  ),
+                  height: sizeHeight * 0.08,
+                  width: sizeWidth * 0.6,
+                ),
+          Text(
+            'Ver total de moedas',
+            style: TextStyle(
+              fontSize: sizeHeight * 0.05,
+              color: const Color.fromARGB(255, 117, 118, 128),
+            ),
           ),
-        ),
-        SizedBox(height: sizeHeight * 0.2),
-      ],
+          SizedBox(height: sizeHeight * 0.1),
+        ],
+      ),
     );
   }
 }

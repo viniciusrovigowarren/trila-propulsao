@@ -1,29 +1,32 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 
-class DetailsCoins extends StatefulWidget {
+import '../../core/provider.dart';
+
+class DetailsCoins extends HookConsumerWidget {
   final double currentPrice;
   final double variation;
   final String nameCoin;
   final String initialsCoin;
   final String? iconCoin;
+  final Color iconCoinColor;
+  final double sizeIcon;
 
-  const DetailsCoins({
-    Key? key,
-    required this.currentPrice,
-    required this.variation,
-    required this.nameCoin,
-    required this.initialsCoin,
-    this.iconCoin,
-  }) : super(key: key);
+  const DetailsCoins(
+      {required this.currentPrice,
+      required this.variation,
+      required this.sizeIcon,
+      required this.nameCoin,
+      required this.initialsCoin,
+      this.iconCoin,
+      required this.iconCoinColor,
+      super.key});
 
   @override
-  State<DetailsCoins> createState() => _DetailsCoinsState();
-}
-
-class _DetailsCoinsState extends State<DetailsCoins> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final visibility = ref.watch(visible.state);
     final sizeWidth = MediaQuery.of(context).size.width;
     final sizeHeight = MediaQuery.of(context).size.width;
     return Container(
@@ -46,99 +49,107 @@ class _DetailsCoinsState extends State<DetailsCoins> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: sizeWidth * 0.03),
                 child: CircleAvatar(
-                  backgroundColor: Colors.black,
+                  backgroundColor: iconCoinColor,
                   maxRadius: sizeHeight * 0.07,
+                  child: Image.asset(
+                    iconCoin!,
+                    height: sizeIcon,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(widget.initialsCoin),
+                  Text(initialsCoin),
                   SizedBox(height: sizeHeight * 0.01),
                   Text(
-                    widget.nameCoin,
-                    style: const TextStyle(
-                      color: Color.fromARGB(255, 117, 118, 128),
-                      fontSize: 17,
+                    nameCoin,
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 117, 118, 128),
+                      fontSize: sizeHeight * 0.03,
                     ),
                   ),
                 ],
               ),
             ],
           ),
-          Padding(
-            padding: EdgeInsets.only(right: sizeWidth * 0.03),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Row(
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: sizeWidth * 0.03),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    const Text(
-                      'US ',
-                      style: TextStyle(
-                        fontSize: 17,
-                      ),
-                    ),
-                    Text(
-                      NumberFormat.simpleCurrency(
-                              locale: 'en_US', decimalDigits: 2)
-                          .format(widget.currentPrice),
-                      style: const TextStyle(
-                        fontSize: 17,
-                      ),
-                    ),
+                    !visibility.state
+                        ? Container(
+                            alignment: Alignment.centerRight,
+                            width: sizeWidth * 0.3,
+                            child: AutoSizeText(
+                              'R\$ ${NumberFormat.simpleCurrency(locale: 'pt_BR', decimalDigits: 2, name: "").format(currentPrice)}',
+                              style: TextStyle(
+                                fontSize: sizeHeight * 0.045,
+                              ),
+                              maxLines: 1,
+                            ),
+                          )
+                        : Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: const Color.fromARGB(49, 138, 137, 137),
+                            ),
+                            height: sizeHeight * 0.05,
+                            width: sizeWidth * 0.3,
+                          ),
+                    SizedBox(height: sizeHeight * 0.01),
+                    !visibility.state
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                variation.toString(),
+                                style: TextStyle(
+                                  fontSize: sizeHeight * 0.03,
+                                  color:
+                                      const Color.fromARGB(255, 117, 118, 128),
+                                ),
+                              ),
+                              Text(
+                                ' $initialsCoin',
+                                style: TextStyle(
+                                  fontSize: sizeHeight * 0.03,
+                                  color:
+                                      const Color.fromARGB(255, 117, 118, 128),
+                                ),
+                              ),
+                            ],
+                          )
+                        : Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: const Color.fromARGB(49, 138, 137, 137),
+                            ),
+                            height: sizeHeight * 0.04,
+                            width: sizeWidth * 0.15,
+                          ),
                   ],
                 ),
-                SizedBox(height: sizeHeight * 0.01),
-                Container(
-                  height: sizeHeight * 0.05,
-                  width: sizeWidth * 0.14,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: widget.variation > 0
-                        ? const Color.fromARGB(178, 214, 255, 223)
-                        : const Color.fromARGB(255, 255, 201, 201),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Visibility(
-                        visible: widget.variation > 0,
-                        child: Text(
-                          '+',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: widget.variation > 0
-                                ? const Color.fromARGB(255, 12, 95, 44)
-                                : const Color.fromARGB(255, 154, 20, 20),
-                          ),
-                        ),
-                      ),
-                      Text(
-                        widget.variation.toString(),
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: widget.variation > 0
-                              ? const Color.fromARGB(255, 12, 95, 44)
-                              : const Color.fromARGB(255, 154, 20, 20),
-                        ),
-                      ),
-                      Text(
-                        '%',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: widget.variation > 0
-                              ? const Color.fromARGB(255, 12, 95, 44)
-                              : const Color.fromARGB(255, 154, 20, 20),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: sizeHeight * 0.01,
+                  right: sizeWidth * 0.05,
+                ),
+                child: Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  color: const Color.fromARGB(255, 117, 118, 128),
+                  size: sizeHeight * 0.03,
+                ),
+              ),
+            ],
           ),
         ],
       ),

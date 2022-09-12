@@ -1,62 +1,87 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trilha_propulsao/core/assets.dart';
+import 'package:trilha_propulsao/core/provider.dart';
 
-class BottonNatigationBar extends StatefulWidget {
-  const BottonNatigationBar({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<BottonNatigationBar> createState() => _BottonNatigationBarState();
-}
-
-class _BottonNatigationBarState extends State<BottonNatigationBar> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+class BottomNavBar extends HookConsumerWidget {
+  const BottomNavBar({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+  Widget build(BuildContext context, WidgetRef ref) {
+    Size size = MediaQuery.of(context).size;
+    final pageIndex = ref.watch(pageIndexProvider.state);
+    return Container(
+      height: size.height * .08,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border(
+          top: BorderSide(
+            color: const Color.fromARGB(255, 227, 228, 235),
+            width: size.height * 0.002,
+          ),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.wallet_rounded),
-          label: 'Carteiras',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.candlestick_chart_outlined),
-          label: 'Movimentações',
-        ),
-      ],
-      currentIndex: _selectedIndex,
-      selectedItemColor: Color.fromARGB(255, 238, 46, 93),
-      selectedLabelStyle: TextStyle(color: Colors.black),
-      unselectedLabelStyle: TextStyle(color: Colors.black),
-      onTap: _onItemTapped,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          InkWell(
+            onTap: () {
+              pageIndex.state = 1;
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Image(
+                  height: size.height * 0.03,
+                  image: AssetImage((pageIndex.state == 0)
+                      ? imgLogoWarrenGray
+                      : imgLogoWarrenMagenta),
+                  fit: BoxFit.cover,
+                ),
+                Text(
+                  'Portfólio',
+                  style: TextStyle(
+                    fontSize: (pageIndex.state == 0)
+                        ? size.width * 0.025
+                        : size.width * 0.03,
+                    color: (pageIndex.state == 0)
+                        ? const Color.fromARGB(255, 149, 153, 166)
+                        : Colors.black,
+                  ),
+                )
+              ],
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              pageIndex.state = 0;
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Image(
+                  height: size.height * 0.03,
+                  image: AssetImage((pageIndex.state == 1)
+                      ? imgMovementsGray
+                      : imgMovementsMagenta),
+                  fit: BoxFit.cover,
+                ),
+                Text(
+                  'Movimentações',
+                  style: TextStyle(
+                    fontSize: (pageIndex.state == 1)
+                        ? size.width * 0.025
+                        : size.width * 0.03,
+                    color: (pageIndex.state == 1)
+                        ? const Color.fromARGB(255, 149, 153, 166)
+                        : Colors.black,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
