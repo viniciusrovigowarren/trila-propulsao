@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
-import '../../../../core/provider.dart';
+import '../../../core/provider.dart';
 
 class DetailsCoins extends HookConsumerWidget {
   final double currentPrice;
