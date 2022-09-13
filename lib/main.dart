@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'portifolio/view/movements_page/movements_page.dart';
+import 'portifolio/view/movements_page.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
