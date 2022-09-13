@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:trilha_propulsao/core/assets.dart';
 
-import 'delails_coins.dart';
-import 'top_page_wallet_eye.dart';
+import 'coin_item.dart';
+import 'header_portifolio.dart';
 
 class BodyHome extends StatelessWidget {
   const BodyHome({
@@ -14,10 +14,10 @@ class BodyHome extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: const [
-          TopPageWalletEye(
+          HeaderPortifolio(
             totalBalance: 14798,
           ),
-          DetailsCoins(
+          CoinItem(
             currentPrice: 6557,
             initialsCoin: 'BTC',
             nameCoin: 'Bitcoin',
@@ -26,7 +26,7 @@ class BodyHome extends StatelessWidget {
             iconCoinColor: colorBitcoin,
             sizeIcon: 25,
           ),
-          DetailsCoins(
+          CoinItem(
             currentPrice: 7996,
             initialsCoin: 'ETH',
             nameCoin: 'Ethereum',
@@ -35,7 +35,7 @@ class BodyHome extends StatelessWidget {
             iconCoinColor: colorEthereum,
             sizeIcon: 40,
           ),
-          DetailsCoins(
+          CoinItem(
             currentPrice: 245,
             initialsCoin: 'LTC',
             nameCoin: 'Litecoin',

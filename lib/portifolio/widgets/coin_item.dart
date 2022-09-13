@@ -2,9 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
-import '../../core/provider.dart';
+import '../../shared/utils/provider.dart';
 
-class DetailsCoins extends HookConsumerWidget {
+class CoinItem extends HookConsumerWidget {
   final double currentPrice;
   final double variation;
   final String nameCoin;
@@ -13,7 +13,7 @@ class DetailsCoins extends HookConsumerWidget {
   final Color iconCoinColor;
   final double sizeIcon;
 
-  const DetailsCoins(
+  const CoinItem(
       {required this.currentPrice,
       required this.variation,
       required this.sizeIcon,

@@ -4,11 +4,11 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:trilha_propulsao/core/assets.dart';
 
-import '../../core/provider.dart';
+import '../../shared/utils/provider.dart';
 
-class TopPageWalletEye extends HookConsumerWidget {
+class HeaderPortifolio extends HookConsumerWidget {
   final double totalBalance;
-  const TopPageWalletEye({
+  const HeaderPortifolio({
     Key? key,
     required this.totalBalance,
   }) : super(key: key);
