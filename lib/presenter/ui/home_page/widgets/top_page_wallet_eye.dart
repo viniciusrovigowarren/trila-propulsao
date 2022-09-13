@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:trilha_propulsao/core/assets.dart';
 
-import '../../core/provider.dart';
+import '../../../../core/provider.dart';
 
 class TopPageWalletEye extends HookConsumerWidget {
   final double totalBalance;

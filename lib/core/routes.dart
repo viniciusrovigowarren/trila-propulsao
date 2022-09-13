@@ -1,3 +1,1 @@
-var appRoutes = {
-  // HomePage.route: (context) => HomePage(),
-};
+var appRoutes = {};
