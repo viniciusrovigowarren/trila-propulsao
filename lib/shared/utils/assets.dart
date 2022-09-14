@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-const String imgBitcoin = 'assets/icons/icon_bitcoin.png';
-const String imgEthereum = 'assets/icons/icon_ethereum.png';
-const String imgLitecoin = 'assets/icons/icon_litecoin.png';
+const String imgBitcoin = 'assets/icons/BTC.png';
+const String imgEthereum = 'assets/icons/ETH.png';
+const String imgLitecoin = 'assets/icons/LTC.png';
+
 const String imgMovementsGray = 'assets/icons/icon_movements_gray.png';
 const String imgMovementsMagenta = 'assets/icons/icon_movements_magenta.png';
 const String imgLogoWarrenGray = 'assets/images/logo_warren_gray.png';
