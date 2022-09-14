@@ -9,7 +9,7 @@ class CoinRepository {
         nameCoin: 'Bitcoin',
         ticker: 'BTC',
         iconCoin: imgBitcoin,
-        variation: 602.25,
+        variation: 602.26,
         currentPrice: 114471.34));
     coins.add(CoinModel(
         nameCoin: 'Ethereum',
