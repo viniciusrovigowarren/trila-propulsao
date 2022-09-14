@@ -2,9 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:trilha_propulsao/core/assets.dart';
+import 'package:trilha_propulsao/shared/utils/assets.dart';
 
-import '../../shared/utils/provider.dart';
+import '../provider/provider.dart';
 
 class HeaderPortifolio extends HookConsumerWidget {
   final double totalBalance;

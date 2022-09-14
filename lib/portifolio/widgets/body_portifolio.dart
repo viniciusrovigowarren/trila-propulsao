@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trilha_propulsao/core/assets.dart';
+import 'package:trilha_propulsao/shared/utils/assets.dart';
 
 import 'coin_item.dart';
 import 'header_portifolio.dart';
