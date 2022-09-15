@@ -13,10 +13,10 @@ class CoinModel {
     required this.variation,
     required this.currentPrice,
   }) {
-    percent = getPercentageCoin();
+    percent = _getPercentageCoin();
   }
 
-  double getPercentageCoin() {
+  double _getPercentageCoin() {
     return (variation.toDouble() * 100) / currentPrice.toDouble() / 100;
   }
 }

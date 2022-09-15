@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/coin_model.dart';
+import '../../model/coin_model.dart';
 
 import 'coin percentage.dart';
 import 'coin_balance.dart';

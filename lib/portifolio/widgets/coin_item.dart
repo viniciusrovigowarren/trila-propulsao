@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../model/coin_model.dart';
-import 'coin_balance_datail.dart';
-import 'coin_image.dart';
+import 'widgets_coin_item/coin_balance_datail.dart';
+import 'widgets_coin_item/coin_image.dart';
 
 class CoinItem extends StatelessWidget {
   final CoinModel coin;
