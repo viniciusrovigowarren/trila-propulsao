@@ -30,7 +30,8 @@ class BottomNavBar extends HookConsumerWidget {
           InkWell(
             onTap: () {
               pageIndex.state != 1
-                  ? Navigator.pushNamed(context, PortifolioPage.route)
+                  ? Navigator.pushReplacementNamed(
+                      context, PortifolioPage.route)
                   : null;
               pageIndex.state = 1;
             },
@@ -61,7 +62,7 @@ class BottomNavBar extends HookConsumerWidget {
           InkWell(
             onTap: () {
               pageIndex.state != 0
-                  ? Navigator.pushNamed(context, MovementsPage.route)
+                  ? Navigator.pushReplacementNamed(context, MovementsPage.route)
                   : null;
               pageIndex.state = 0;
             },
