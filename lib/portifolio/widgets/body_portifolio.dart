@@ -5,8 +5,8 @@ import 'package:trilha_propulsao/portifolio/widgets/wallet_header.dart';
 import '../provider/provider.dart';
 import 'coin_item.dart';
 
-class BodyHome extends HookConsumerWidget {
-  const BodyHome({
+class BodyPortifolioPage extends HookConsumerWidget {
+  const BodyPortifolioPage({
     Key? key,
   }) : super(key: key);
 

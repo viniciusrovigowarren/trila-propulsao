@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trilha_propulsao/portifolio/widgets/wallet_balance..dart';
 
-import 'crypto_title.dart';
+import 'widgets_coin_item/crypto_title.dart';
 
 class WalletHeader extends StatelessWidget {
   const WalletHeader({
