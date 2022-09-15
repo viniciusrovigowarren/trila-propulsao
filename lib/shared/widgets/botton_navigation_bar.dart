@@ -3,6 +3,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trilha_propulsao/shared/utils/assets.dart';
 import 'package:trilha_propulsao/portifolio/provider/provider.dart';
 
+import '../../movements/movements_page.dart';
+import '../../portifolio/view/portifolio.dart';
+
 class BottomNavBar extends HookConsumerWidget {
   const BottomNavBar({super.key});
 
@@ -26,6 +29,9 @@ class BottomNavBar extends HookConsumerWidget {
         children: [
           InkWell(
             onTap: () {
+              pageIndex.state != 1
+                  ? Navigator.pushNamed(context, PortifolioPage.route)
+                  : null;
               pageIndex.state = 1;
             },
             child: Column(
@@ -54,6 +60,9 @@ class BottomNavBar extends HookConsumerWidget {
           ),
           InkWell(
             onTap: () {
+              pageIndex.state != 0
+                  ? Navigator.pushNamed(context, MovementsPage.route)
+                  : null;
               pageIndex.state = 0;
             },
             child: Column(
