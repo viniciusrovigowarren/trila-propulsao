@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:trilha_propulsao/portifolio/widgets/wallet_header.dart';
 
 import '../provider/provider.dart';
 import 'coin_item.dart';
+import 'wallet_header.dart';
 
 class BodyPortifolioPage extends HookConsumerWidget {
   const BodyPortifolioPage({

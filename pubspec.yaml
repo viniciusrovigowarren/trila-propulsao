@@ -39,6 +39,7 @@ dependencies:
   intl:
   hooks_riverpod: ^1.0.4
   auto_size_text: ^3.0.0
+  fl_chart: ^0.55.1
 
 dev_dependencies:
   flutter_test:

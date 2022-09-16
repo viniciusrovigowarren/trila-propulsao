@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:trilha_propulsao/shared/utils/assets.dart';
-import 'package:trilha_propulsao/portifolio/provider/provider.dart';
 
 import '../../movements/movements_page.dart';
+import '../../portifolio/provider/provider.dart';
 import '../../portifolio/view/portifolio.dart';
+import '../utils/assets.dart';
 
 class BottomNavBar extends HookConsumerWidget {
   const BottomNavBar({super.key});
