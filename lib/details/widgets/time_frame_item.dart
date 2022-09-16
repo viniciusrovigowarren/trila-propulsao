@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TimeFrameItem extends StatelessWidget {
-  final String time;
+  final int time;
   final bool itemSelected;
 
   const TimeFrameItem({
@@ -23,7 +23,7 @@ class TimeFrameItem extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           color: itemSelected
-              ? const Color.fromARGB(255, 238, 240, 247)
+              ? const Color.fromARGB(255, 200, 200, 200)
               : Colors.transparent,
         ),
         child: Text(

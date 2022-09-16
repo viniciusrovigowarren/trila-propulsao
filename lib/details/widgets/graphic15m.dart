@@ -1,24 +1,21 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class Graphic extends StatelessWidget {
-  const Graphic({
-    Key? key,
-  }) : super(key: key);
+class Graphic15m extends StatelessWidget {
+  const Graphic15m({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final sizeWidth = MediaQuery.of(context).size.width;
-    final sizeHeight = MediaQuery.of(context).size.width;
+    final size = MediaQuery.of(context).size;
     return SizedBox(
-      height: sizeHeight * 0.35,
-      width: sizeWidth,
+      height: size.height * 0.18,
+      width: size.width,
       child: LineChart(
         LineChartData(
           minX: 0,
-          maxX: 5,
+          maxX: 6.5,
           minY: 0,
-          maxY: 5,
+          maxY: 4.2,
           titlesData: FlTitlesData(show: false),
           gridData: FlGridData(
             show: false,
@@ -39,6 +36,9 @@ class Graphic extends StatelessWidget {
                 const FlSpot(4.2, 3),
                 const FlSpot(4.5, 3.2),
                 const FlSpot(5, 4.2),
+                const FlSpot(5.5, 3),
+                const FlSpot(6, 3.2),
+                const FlSpot(6.5, 4.2),
               ],
               barWidth: 3,
               dotData: FlDotData(show: false),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'graphic_body.dart';
 import 'time_frame.dart';
 
 import 'button_convert_coin.dart';
 import 'currency_information.dart';
-import 'graphic.dart';
 import 'header_details.dart';
 
 class BodyDetails extends StatelessWidget {
@@ -18,7 +18,7 @@ class BodyDetails extends StatelessWidget {
       child: Column(
         children: const [
           HeaderDetails(),
-          Graphic(),
+          GraphicBody(),
           TimeFrame(),
           CurrencyInformation(),
           ButtonConvertCoin()
