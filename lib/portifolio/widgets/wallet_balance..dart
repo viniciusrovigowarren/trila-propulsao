@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:intl/intl.dart';
 
 import '../provider/provider.dart';
 import '../controller/wallet_controller.dart';
@@ -26,8 +25,7 @@ class WalletBalance extends HookConsumerWidget {
       child: Visibility(
         visible: (viewWalletValue.state),
         child: AutoSizeText(
-          NumberFormat.simpleCurrency(locale: 'pt_BR', decimalDigits: 2)
-              .format((walletController.getTotalBalance())),
+          '${walletController.getTotalBalance()}',
           style: TextStyle(
             color: Colors.black,
             fontFamily: "Montserrat",

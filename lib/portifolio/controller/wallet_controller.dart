@@ -16,7 +16,7 @@ class WalletController extends ChangeNotifier {
   double getTotalBalance() {
     double total = 0.0;
     for (CoinModel coin in coins) {
-      total += coin.variation;
+      total += coin.currentPrice.toDouble();
     }
     return total;
   }
