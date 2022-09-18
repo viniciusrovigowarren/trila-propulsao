@@ -13,7 +13,7 @@ class CoinRepository {
         ticker: 'BTC',
         iconCoin: imgBitcoin,
         variation: 8.00,
-        currentPrice: pD('103.21'),
+        currentPrice: pD('1031.21'),
         coinBalance: pD('0.51'),
         // dayPrices: [
         //   pD('1'),
