@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:trilha_propulsao/details/provider/provider.dart';
 
+import '../provider/provider.dart';
 import 'time_frame_item.dart';
 
 class TimeFrame extends HookConsumerWidget {

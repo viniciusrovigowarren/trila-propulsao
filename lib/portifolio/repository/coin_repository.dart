@@ -1,8 +1,5 @@
-import 'package:decimal/decimal.dart';
-
 import '../../details/widgets/graphic.dart';
 import '../../shared/utils/assets.dart';
-
 import '../model/coin_model.dart';
 
 class CoinRepository {

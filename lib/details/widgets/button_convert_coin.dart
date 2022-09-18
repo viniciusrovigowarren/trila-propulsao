@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../shared/utils/assets.dart';
+
 class ButtonConvertCoin extends StatelessWidget {
   final void Function()? onPressed;
   const ButtonConvertCoin({
@@ -12,7 +14,7 @@ class ButtonConvertCoin extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return MaterialButton(
-      color: const Color.fromARGB(255, 224, 43, 87),
+      color: colorMagenta,
       minWidth: size.width,
       height: 60,
       shape: RoundedRectangleBorder(

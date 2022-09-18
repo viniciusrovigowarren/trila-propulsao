@@ -28,11 +28,4 @@ class DetailsAssetNotifier extends StateNotifier<CoinModel> {
             // dayPrices: [],
           ),
         );
-
-  // void changeVariation(int time) {
-  //   time = time == 1 ? 2 : time;
-  //   state.variation = (pD(state.prices.first) /  pD(state.prices.elementAt(time - 1)) -
-  //           1) *
-  //       100;
-  // }
 }

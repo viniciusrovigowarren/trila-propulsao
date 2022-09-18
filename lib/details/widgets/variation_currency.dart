@@ -2,8 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:trilha_propulsao/details/provider/provider.dart';
-import 'package:trilha_propulsao/details/widgets/time_frame.dart';
+
+import '../provider/provider.dart';
 
 class VariationCurrency extends HookConsumerWidget {
   final double variationCurrency;
