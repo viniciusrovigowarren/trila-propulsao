@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class PriceCurrency extends StatelessWidget {
   final double priceCUrrency;
@@ -38,7 +37,7 @@ class PriceCurrency extends StatelessWidget {
               width: sizeWidth * 0.35,
               child: AutoSizeText(
                 textAlign: TextAlign.end,
-                'R\$ ${NumberFormat.simpleCurrency(locale: 'pt_BR', decimalDigits: 2, name: "").format(priceCUrrency)}',
+                'R\$ $priceCUrrency',
                 style: const TextStyle(
                   fontSize: 19,
                   color: Color.fromARGB(255, 47, 47, 51),

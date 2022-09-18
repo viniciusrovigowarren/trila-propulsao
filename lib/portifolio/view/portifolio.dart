@@ -6,7 +6,7 @@ import '../widgets/body_portifolio.dart';
 class PortifolioPage extends StatelessWidget {
   const PortifolioPage({Key? key}) : super(key: key);
 
-  static const route = '/portifolio-page';
+  static const routeName = '/portifolio-page';
 
   @override
   Widget build(BuildContext context) {

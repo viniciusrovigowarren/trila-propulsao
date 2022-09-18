@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class QtdCoin extends StatelessWidget {
   final double priceCUrrency;
@@ -40,7 +39,7 @@ class QtdCoin extends StatelessWidget {
               width: sizeWidth * 0.45,
               child: AutoSizeText(
                 textAlign: TextAlign.end,
-                '${NumberFormat.simpleCurrency(locale: 'pt_BR', decimalDigits: 8, name: "").format(priceCUrrency)} ${initialsCoin}',
+                '$priceCUrrency $initialsCoin',
                 style: const TextStyle(
                   fontSize: 19,
                   color: Color.fromARGB(255, 47, 47, 51),

@@ -7,10 +7,10 @@ import 'coin_balance.dart';
 class CoinBalanceDetail extends StatelessWidget {
   const CoinBalanceDetail({
     Key? key,
-    required this.coin,
+    required this.model,
   }) : super(key: key);
 
-  final CoinModel coin;
+  final CoinModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +22,19 @@ class CoinBalanceDetail extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(coin.ticker, style: const TextStyle(fontSize: 21)),
-              CoinBalance(coin: coin),
+              Text(model.ticker, style: const TextStyle(fontSize: 21)),
+              CoinBalance(model: model),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                coin.nameCoin,
+                model.nameCoin,
                 style: const TextStyle(
                     fontSize: 16, color: Color.fromARGB(255, 117, 118, 128)),
               ),
-              CoinPercentage(coin: coin),
+              CoinPercentage(coin: model),
             ],
           ),
         ],

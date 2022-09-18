@@ -30,7 +30,7 @@ class CoinPercentage extends HookConsumerWidget {
         visible: (viewWalletValue.state),
         child: AutoSizeText(
           maxLines: 1,
-          WalletController.getFormatedPercentage(coin.percent, coin.ticker),
+          WalletController.getFormatedPercentage(coin.percent!, coin.ticker),
           style: const TextStyle(
             color: Color.fromARGB(255, 117, 118, 128),
             fontSize: 16,

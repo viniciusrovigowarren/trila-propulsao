@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class ValueCoin extends StatelessWidget {
-  final double priceCUrrency;
+  final double priceCurrency;
   const ValueCoin({
     Key? key,
-    required this.priceCUrrency,
+    required this.priceCurrency,
   }) : super(key: key);
 
   @override
@@ -38,7 +38,7 @@ class ValueCoin extends StatelessWidget {
               width: sizeWidth * 0.35,
               child: AutoSizeText(
                 textAlign: TextAlign.end,
-                'R\$ ${NumberFormat.simpleCurrency(locale: 'pt_BR', decimalDigits: 2, name: "").format(priceCUrrency)}',
+                'R\$ ${NumberFormat.simpleCurrency(locale: 'pt_BR', decimalDigits: 2, name: "").format(priceCurrency)}',
                 style: const TextStyle(
                   fontSize: 19,
                   color: Color.fromARGB(255, 47, 47, 51),
