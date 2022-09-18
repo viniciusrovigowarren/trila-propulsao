@@ -1,31 +1,29 @@
 import 'package:flutter/material.dart';
 
 class ButtonConvertCoin extends StatelessWidget {
+  final void Function()? onPressed;
   const ButtonConvertCoin({
     Key? key,
+    this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final sizeWidth = MediaQuery.of(context).size.width;
-    final sizeHeight = MediaQuery.of(context).size.width;
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        alignment: Alignment.center,
-        width: sizeWidth * 0.85,
-        height: sizeHeight * 0.15,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: const Color.fromARGB(255, 224, 43, 87),
-        ),
-        child: const Text(
-          'Converter moeda',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 17,
-          ),
+    final size = MediaQuery.of(context).size;
+
+    return MaterialButton(
+      color: const Color.fromARGB(255, 224, 43, 87),
+      minWidth: size.width,
+      height: 60,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      onPressed: onPressed,
+      child: const Text(
+        'Converter moeda',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 17,
         ),
       ),
     );

@@ -1,8 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:trilha_propulsao/details/provider/provider.dart';
+import 'package:trilha_propulsao/details/widgets/time_frame.dart';
 
-class VariationCurrency extends StatelessWidget {
+class VariationCurrency extends HookConsumerWidget {
   final double variationCurrency;
   const VariationCurrency({
     Key? key,
@@ -10,7 +13,8 @@ class VariationCurrency extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final timeFrame = ref.watch(timeFrameProvider.state);
     final String value = (NumberFormat.simpleCurrency(
             locale: 'pt_BR', decimalDigits: 2, name: "")
         .format(variationCurrency));
@@ -31,9 +35,9 @@ class VariationCurrency extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              'Variação 24H',
-              style: TextStyle(
+            Text(
+              'Variação ${timeFrame.state}D',
+              style: const TextStyle(
                 fontSize: 19,
                 color: Color.fromARGB(255, 117, 118, 128),
               ),

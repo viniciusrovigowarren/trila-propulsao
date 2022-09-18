@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class HeaderDetails extends StatelessWidget {
   final double currentPrice;
@@ -16,8 +17,8 @@ class HeaderDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sizeWidth = MediaQuery.of(context).size.width;
-    final sizeHeight = MediaQuery.of(context).size.width;
+    final size = MediaQuery.of(context).size;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -52,20 +53,20 @@ class HeaderDetails extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: sizeHeight * 0.03),
+        SizedBox(height: size.height * 0.005),
         SizedBox(
-          width: sizeWidth * 0.6,
+          width: size.width * 0.6,
           child: AutoSizeText(
-            'R\$ $currentPrice',
+            NumberFormat.simpleCurrency(locale: 'pt_BR', decimalDigits: 2)
+                .format((currentPrice)),
             style: TextStyle(
-              fontSize: sizeHeight * 0.08,
+              color: Colors.black,
               fontFamily: "Montserrat",
-              fontWeight: FontWeight.w700,
+              fontSize: size.height * .045,
             ),
-            maxLines: 1,
           ),
         ),
-        SizedBox(height: sizeHeight * 0.02),
+        SizedBox(height: size.height * 0.01),
       ],
     );
   }

@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trilha_propulsao/portifolio/model/coin_model.dart';
 import 'package:trilha_propulsao/portifolio/view/portifolio.dart';
 
+import '../provider/provider.dart';
 import '../widgets/button_convert_coin.dart';
 import '../widgets/graphic.dart';
 import '../widgets/header_details.dart';
@@ -24,6 +25,7 @@ class DetailsPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final timeFrame = ref.watch(timeFrameProvider.state);
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
@@ -53,20 +55,30 @@ class DetailsPage extends HookConsumerWidget {
                 ticker: model.ticker,
                 currentPrice: model.currentPrice.toDouble(),
               ),
-              //TODO: IMPLEMENTAR GRÁFICO
               Graphic(model: model),
               const TimeFrame(),
               Column(
                 children: [
-                  PriceCurrency(priceCUrrency: pS(model.currentPrice)),
-                  VariationCurrency(variationCurrency: model.variation),
+                  PriceCurrency(
+                    priceCUrrency: pS(
+                      model.prices[timeFrame.state - 1],
+                    ),
+                  ),
+                  VariationCurrency(
+                    variationCurrency: (-model.prices.first.toDouble() +
+                        model.prices[timeFrame.state - 1].toDouble()),
+                  ),
                   QtdCoin(
-                      initialsCoin: model.ticker,
-                      priceCUrrency: pS(model.currentPrice)),
-                  ValueCoin(priceCurrency: pS(model.currentPrice)),
+                    priceCUrrency: model.coinBalance.toDouble(),
+                    initialsCoin: model.ticker,
+                  ),
+                  ValueCoin(
+                      priceCurrency: pS(
+                    model.prices[timeFrame.state - 1] * model.coinBalance,
+                  )),
                 ],
               ),
-              const ButtonConvertCoin()
+              ButtonConvertCoin(onPressed: () {})
             ],
           ),
         ),
