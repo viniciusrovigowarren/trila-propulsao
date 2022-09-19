@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:trilha_propulsao/portifolio/view/portifolio.dart';
 
 import '../portifolio/provider/provider.dart';
+import '../portifolio/view/portifolio.dart';
 import '../shared/widgets/botton_navigation_bar.dart';
 
 class MovementsPage extends HookConsumerWidget {
   const MovementsPage({Key? key}) : super(key: key);
 
-  static const route = '/moviments-page';
+  static const routeName = '/moviments-page';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,7 +19,7 @@ class MovementsPage extends HookConsumerWidget {
           leading: IconButton(
             onPressed: () {
               pageIndex.state = 1;
-              Navigator.pushNamed(context, PortifolioPage.route);
+              Navigator.pushNamed(context, PortifolioPage.routeName);
             },
             icon: const Icon(Icons.arrow_back_ios_new_outlined,
                 color: Colors.black),

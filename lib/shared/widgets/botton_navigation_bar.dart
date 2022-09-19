@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:trilha_propulsao/shared/utils/assets.dart';
-import 'package:trilha_propulsao/portifolio/provider/provider.dart';
 
 import '../../movements/movements_page.dart';
+import '../../portifolio/provider/provider.dart';
 import '../../portifolio/view/portifolio.dart';
+import '../utils/assets.dart';
 
 class BottomNavBar extends HookConsumerWidget {
   const BottomNavBar({super.key});
@@ -31,7 +31,7 @@ class BottomNavBar extends HookConsumerWidget {
             onTap: () {
               pageIndex.state != 1
                   ? Navigator.pushReplacementNamed(
-                      context, PortifolioPage.route)
+                      context, PortifolioPage.routeName)
                   : null;
               pageIndex.state = 1;
             },
@@ -62,7 +62,8 @@ class BottomNavBar extends HookConsumerWidget {
           InkWell(
             onTap: () {
               pageIndex.state != 0
-                  ? Navigator.pushReplacementNamed(context, MovementsPage.route)
+                  ? Navigator.pushReplacementNamed(
+                      context, MovementsPage.routeName)
                   : null;
               pageIndex.state = 0;
             },

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 const String imgBitcoin = 'assets/icons/BTC.png';
 const String imgEthereum = 'assets/icons/ETH.png';
 const String imgLitecoin = 'assets/icons/LTC.png';
+const String imgDogecoin = 'assets/icons/DOGE.png';
 
 const String imgMovementsGray = 'assets/icons/icon_movements_gray.png';
 const String imgMovementsMagenta = 'assets/icons/icon_movements_magenta.png';

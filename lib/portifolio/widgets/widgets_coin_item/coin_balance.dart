@@ -9,10 +9,10 @@ import '../../provider/provider.dart';
 class CoinBalance extends HookConsumerWidget {
   const CoinBalance({
     Key? key,
-    required this.coin,
+    required this.model,
   }) : super(key: key);
 
-  final CoinModel coin;
+  final CoinModel model;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -30,7 +30,7 @@ class CoinBalance extends HookConsumerWidget {
         visible: (viewWalletValue.state),
         child: AutoSizeText(
           NumberFormat.simpleCurrency(locale: 'pt_BR', decimalDigits: 2)
-              .format((coin.variation)),
+              .format((model.currentPrice.toDouble())),
           style: const TextStyle(
             color: Colors.black,
             fontSize: 21,

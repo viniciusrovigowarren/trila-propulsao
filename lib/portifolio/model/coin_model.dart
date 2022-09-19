@@ -1,17 +1,24 @@
+import 'package:decimal/decimal.dart';
+
 class CoinModel {
-  String nameCoin;
   String ticker;
-  String iconCoin;
+  String nameCoin;
+  Decimal currentPrice;
   double variation;
-  double currentPrice;
-  late double percent;
+  Decimal coinBalance;
+  String iconCoin;
+  List<Decimal> prices;
+  late double? percent;
 
   CoinModel({
-    required this.nameCoin,
     required this.ticker,
-    required this.iconCoin,
-    required this.variation,
+    required this.nameCoin,
     required this.currentPrice,
+    required this.variation,
+    required this.coinBalance,
+    required this.iconCoin,
+    required this.prices,
+    this.percent,
   }) {
     percent = _getPercentageCoin();
   }
