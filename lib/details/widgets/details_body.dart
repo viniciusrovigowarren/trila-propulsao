@@ -13,14 +13,14 @@ import 'value_coin.dart';
 import 'variation_currency.dart';
 
 class DatailsBody extends StatelessWidget {
+  final CoinModel model;
+  final StateController<int> timeFrame;
+
   const DatailsBody({
     Key? key,
     required this.model,
     required this.timeFrame,
   }) : super(key: key);
-
-  final CoinModel model;
-  final StateController<int> timeFrame;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,10 @@ class DatailsBody extends StatelessWidget {
         appBar: AppBar(
           leading: GestureDetector(
             onTap: () {
-              Navigator.pushReplacementNamed(context, PortifolioPage.routeName);
+              Navigator.pushReplacementNamed(
+                context,
+                PortifolioPage.routeName,
+              );
             },
             child: const Icon(
               Icons.arrow_back_ios,
@@ -39,7 +42,10 @@ class DatailsBody extends StatelessWidget {
           backgroundColor: Colors.white,
           title: const Text(
             'Detalhes',
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         body: SingleChildScrollView(

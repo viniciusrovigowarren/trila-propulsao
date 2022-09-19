@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class QtdCoin extends StatelessWidget {
   final double priceCUrrency;
   final String initialsCoin;
+
   const QtdCoin({
     Key? key,
     required this.priceCUrrency,
@@ -14,6 +15,7 @@ class QtdCoin extends StatelessWidget {
   Widget build(BuildContext context) {
     final sizeWidth = MediaQuery.of(context).size.width;
     final sizeHeight = MediaQuery.of(context).size.width;
+
     return Container(
       decoration: BoxDecoration(
         border: Border(

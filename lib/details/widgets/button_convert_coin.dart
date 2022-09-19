@@ -4,6 +4,7 @@ import '../../shared/utils/assets.dart';
 
 class ButtonConvertCoin extends StatelessWidget {
   final void Function()? onPressed;
+
   const ButtonConvertCoin({
     Key? key,
     this.onPressed,

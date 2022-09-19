@@ -7,6 +7,7 @@ class HeaderDetails extends StatelessWidget {
   final String nameCoin;
   final String ticker;
   final String imgIcon;
+
   const HeaderDetails({
     Key? key,
     required this.currentPrice,
@@ -31,12 +32,16 @@ class HeaderDetails extends StatelessWidget {
                 Text(
                   nameCoin,
                   style: const TextStyle(
-                      fontSize: 34, fontWeight: FontWeight.bold),
+                    fontSize: 34,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Text(
                   ticker,
                   style: const TextStyle(
-                      fontSize: 17, color: Color.fromARGB(255, 117, 118, 128)),
+                    fontSize: 17,
+                    color: Color.fromARGB(255, 117, 118, 128),
+                  ),
                 ),
               ],
             ),

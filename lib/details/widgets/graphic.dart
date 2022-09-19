@@ -11,6 +11,7 @@ double pS(Decimal source) => double.parse(source.toString());
 
 class Graphic extends HookConsumerWidget {
   final CoinModel model;
+
   const Graphic({
     Key? key,
     required this.model,
@@ -20,6 +21,14 @@ class Graphic extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final timeFrame = ref.watch(timeFrameProvider.state).state;
     final size = MediaQuery.of(context).size;
+
+    List<FlSpot> generateList() {
+      List<FlSpot> spotsList = [];
+      for (var i = 0; i <= timeFrame; i++) {
+        spotsList.add(FlSpot(i.toDouble(), pS(model.prices[i])));
+      }
+      return spotsList;
+    }
 
     double getMinY() {
       double minY = 100000;
@@ -39,14 +48,6 @@ class Graphic extends HookConsumerWidget {
         }
       }
       return maxX;
-    }
-
-    List<FlSpot> generateList() {
-      List<FlSpot> spotsList = [];
-      for (var i = 0; i <= timeFrame; i++) {
-        spotsList.add(FlSpot(i.toDouble(), pS(model.prices[i])));
-      }
-      return spotsList;
     }
 
     return SizedBox(
@@ -73,7 +74,7 @@ class Graphic extends HookConsumerWidget {
           ],
         ),
         swapAnimationDuration: const Duration(milliseconds: 450),
-        swapAnimationCurve: Curves.easeInCirc,
+        swapAnimationCurve: Curves.decelerate,
       ),
     );
   }

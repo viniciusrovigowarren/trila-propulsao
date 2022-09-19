@@ -5,13 +5,12 @@ import '../provider/provider.dart';
 import 'time_frame_item.dart';
 
 class TimeFrame extends HookConsumerWidget {
-  const TimeFrame({
-    Key? key,
-  }) : super(key: key);
+  const TimeFrame({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final timeFrame = ref.watch(timeFrameProvider.state);
+
     return Row(
       children: [
         GestureDetector(

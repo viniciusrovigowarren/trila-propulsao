@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 class ValueCoin extends StatelessWidget {
   final double priceCurrency;
+
   const ValueCoin({
     Key? key,
     required this.priceCurrency,
@@ -13,6 +14,7 @@ class ValueCoin extends StatelessWidget {
   Widget build(BuildContext context) {
     final sizeWidth = MediaQuery.of(context).size.width;
     final sizeHeight = MediaQuery.of(context).size.width;
+
     return Container(
       decoration: BoxDecoration(
         border: Border(

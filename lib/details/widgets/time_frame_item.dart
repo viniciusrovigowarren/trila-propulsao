@@ -14,8 +14,12 @@ class TimeFrameItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final sizeWidth = MediaQuery.of(context).size.width;
     final sizeHeight = MediaQuery.of(context).size.width;
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 25),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 6.0,
+        vertical: 25,
+      ),
       child: Container(
         alignment: Alignment.center,
         height: sizeHeight * 0.05,

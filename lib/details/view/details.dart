@@ -7,6 +7,7 @@ import '../widgets/details_body.dart';
 
 class DetailsPage extends HookConsumerWidget {
   final CoinModel model;
+
   const DetailsPage({
     Key? key,
     required this.model,

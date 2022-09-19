@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class PriceCurrency extends StatelessWidget {
   final double priceCUrrency;
+
   const PriceCurrency({
     Key? key,
     required this.priceCUrrency,
@@ -12,6 +13,7 @@ class PriceCurrency extends StatelessWidget {
   Widget build(BuildContext context) {
     final sizeWidth = MediaQuery.of(context).size.width;
     final sizeHeight = MediaQuery.of(context).size.width;
+
     return Container(
       decoration: BoxDecoration(
         border: Border(
