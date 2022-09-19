@@ -8,7 +8,6 @@ class CoinModel {
   Decimal coinBalance;
   String iconCoin;
   List<Decimal> prices;
-  //List<Decimal> dayPrices;
   late double? percent;
 
   CoinModel({
@@ -19,7 +18,6 @@ class CoinModel {
     required this.coinBalance,
     required this.iconCoin,
     required this.prices,
-    //required this.dayPrices,
     this.percent,
   }) {
     percent = _getPercentageCoin();

@@ -25,7 +25,6 @@ class DetailsAssetNotifier extends StateNotifier<CoinModel> {
             prices: [],
             ticker: '',
             variation: 1.2,
-            // dayPrices: [],
           ),
         );
 }

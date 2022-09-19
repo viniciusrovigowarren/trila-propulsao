@@ -7,6 +7,7 @@ import '../provider/provider.dart';
 
 class VariationCurrency extends HookConsumerWidget {
   final double variationCurrency;
+
   const VariationCurrency({
     Key? key,
     required this.variationCurrency,
