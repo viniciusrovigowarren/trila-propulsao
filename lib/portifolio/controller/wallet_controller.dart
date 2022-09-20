@@ -9,9 +9,7 @@ class WalletController extends ChangeNotifier {
 
   WalletController(
     this.coinRepo,
-  ) {
-    coins = coinRepo.getAllUserCoin();
-  }
+  );
 
   double getTotalBalance() {
     double total = 0.0;

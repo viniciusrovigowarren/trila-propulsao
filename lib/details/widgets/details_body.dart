@@ -3,16 +3,16 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../portifolio/model/coin_model.dart';
 import '../../portifolio/view/portifolio.dart';
+import '../provider/provider.dart';
 import 'button_convert_coin.dart';
 import 'graphic.dart';
 import 'header_details.dart';
 import 'price_currency.dart';
 import 'qtd_currency.dart';
 import 'time_frame.dart';
-import 'value_coin.dart';
 import 'variation_currency.dart';
 
-class DatailsBody extends StatelessWidget {
+class DatailsBody extends HookConsumerWidget {
   final CoinModel model;
   final StateController<int> timeFrame;
 
@@ -23,7 +23,8 @@ class DatailsBody extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final coins = ref.watch(coinProvider);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -65,21 +66,21 @@ class DatailsBody extends StatelessWidget {
                   children: [
                     PriceCurrency(
                       priceCUrrency: pS(
-                        model.prices[timeFrame.state - 1],
+                        model.prices![timeFrame.state - 1],
                       ),
                     ),
                     VariationCurrency(
-                      variationCurrency: (-model.prices.first.toDouble() +
-                          model.prices[timeFrame.state - 1].toDouble()),
+                      variationCurrency: (model.variation),
                     ),
                     QtdCoin(
-                      priceCUrrency: model.coinBalance.toDouble(),
+                      priceCUrrency: model.coinBalance!.toDouble(),
                       initialsCoin: model.ticker,
                     ),
-                    ValueCoin(
-                        priceCurrency: pS(
-                      model.prices[timeFrame.state - 1] * model.coinBalance,
-                    )),
+                    //TODO: FAZER
+                    // ValueCoin(
+                    //     priceCurrency: pS(
+                    //   model.prices![timeFrame.state - 1] * model.coinBalance,
+                    // )),
                   ],
                 ),
                 ButtonConvertCoin(onPressed: () {})

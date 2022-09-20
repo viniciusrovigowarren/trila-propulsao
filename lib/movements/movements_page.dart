@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../portifolio/provider/provider.dart';
 import '../portifolio/view/portifolio.dart';
+import '../shared/provider/providers_shared.dart';
 import '../shared/widgets/botton_navigation_bar.dart';
 
 class MovementsPage extends HookConsumerWidget {

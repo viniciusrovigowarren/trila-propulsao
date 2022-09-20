@@ -26,19 +26,26 @@ class CoinItem extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: size.width * .03, vertical: size.height * .02),
-        child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          CoinImage(image: model.iconCoin),
-          CoinBalanceDetail(model: model),
-          Padding(
-            padding: EdgeInsets.only(
-                top: size.height * .009, left: size.width * .04),
-            child: const Icon(
-              Icons.arrow_forward_ios_sharp,
-              size: 14,
-            ),
-          )
-        ]),
+          horizontal: size.width * .03,
+          vertical: size.height * .02,
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CoinImage(image: model.iconCoin),
+            CoinBalanceDetail(model: model),
+            Padding(
+              padding: EdgeInsets.only(
+                top: size.height * .009,
+                left: size.width * .04,
+              ),
+              child: const Icon(
+                Icons.arrow_forward_ios_sharp,
+                size: 14,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -25,7 +25,7 @@ class Graphic extends HookConsumerWidget {
     List<FlSpot> generateList() {
       List<FlSpot> spotsList = [];
       for (var i = 0; i <= timeFrame; i++) {
-        spotsList.add(FlSpot(i.toDouble(), pS(model.prices[i])));
+        spotsList.add(FlSpot(i.toDouble(), pS(model.prices![i])));
       }
       return spotsList;
     }
@@ -33,8 +33,8 @@ class Graphic extends HookConsumerWidget {
     double getMinY() {
       double minY = 100000;
       for (var i = 0; i < timeFrame; i++) {
-        if (model.prices[i].toDouble() < minY) {
-          minY = model.prices[i].toDouble();
+        if (model.prices![i].toDouble() < minY) {
+          minY = model.prices![i].toDouble();
         }
       }
       return minY;
@@ -43,8 +43,8 @@ class Graphic extends HookConsumerWidget {
     double getMaxY() {
       double maxX = 0;
       for (var i = 0; i < timeFrame; i++) {
-        if (model.prices[i].toDouble() > maxX) {
-          maxX = model.prices[i].toDouble();
+        if (model.prices![i].toDouble() > maxX) {
+          maxX = model.prices![i].toDouble();
         }
       }
       return maxX;

@@ -26,8 +26,7 @@ class WalletBalance extends HookConsumerWidget {
       child: Visibility(
         visible: (viewWalletValue.state),
         child: AutoSizeText(
-          NumberFormat.simpleCurrency(locale: 'pt_BR', decimalDigits: 2)
-              .format((walletController.getTotalBalance())),
+          'US ${NumberFormat.simpleCurrency(locale: 'en_US', decimalDigits: 2).format((walletController.getTotalBalance()))}',
           style: TextStyle(
             color: Colors.black,
             fontFamily: "Montserrat",
