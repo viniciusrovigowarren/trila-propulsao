@@ -1,25 +1,16 @@
 import 'dart:async';
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../portifolio/model/wallet_view_data.dart';
-import '../../portifolio/view/portifolio.dart';
 import '../../shared/api/models/coin_prices/coin_price_response.dart';
 import '../provider/provider.dart';
-import 'button_convert_coin.dart';
 import 'detail_chart.dart';
 import 'detail_description.dart';
 import 'detail_header.dart';
-import 'graphic.dart';
-import 'header_details.dart';
 import 'loading_details.dart';
-import 'price_currency.dart';
-import 'qtd_currency.dart';
-import 'time_frame.dart';
-import 'variation_currency.dart';
 
 class DatailsBody extends StatefulHookConsumerWidget {
   final WalletViewData model;

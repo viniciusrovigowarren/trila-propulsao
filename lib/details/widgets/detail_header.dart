@@ -107,14 +107,15 @@ class CoinPrice extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 09),
       child: AutoSizeText(
-          maxLines: 1,
-          NumberFormat.simpleCurrency(name: 'US\$ ', decimalDigits: 2)
-              .format(pS(coinPrice)),
-          style: TextStyle(
-            color: Colors.black,
-            fontFamily: "Montserrat",
-            fontSize: size.height * .040,
-          )),
+        maxLines: 1,
+        NumberFormat.simpleCurrency(name: 'US\$ ', decimalDigits: 2)
+            .format(pS(coinPrice)),
+        style: TextStyle(
+          color: Colors.black,
+          fontFamily: "Montserrat",
+          fontSize: size.height * .040,
+        ),
+      ),
     );
   }
 }
