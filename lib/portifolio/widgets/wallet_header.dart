@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'wallet_balance..dart';
-import 'widgets_coin_item/crypto_title.dart';
+import 'coin_title.dart';
+import 'wallet_balance.dart';
 
 class WalletHeader extends StatelessWidget {
-  const WalletHeader({
-    Key? key,
-  }) : super(key: key);
+  const WalletHeader({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +21,7 @@ class WalletHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: const [
-          CryptoTitle(),
+          CoinTitle(),
           WalletBalance(),
           Text(
             "Valor total de moedas",

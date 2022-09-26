@@ -1,50 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../model/coin_model.dart';
-import 'widgets_coin_item/coin_balance_datail.dart';
-import 'widgets_coin_item/coin_image.dart';
+import '../../details/provider/provider.dart';
+import '../../details/view/details.dart';
+import '../model/wallet_view_data.dart';
+import 'coin_balance_detail.dart';
+import 'coin_image.dart';
 
-class CoinItem extends StatelessWidget {
-  final CoinModel model;
+class CoinItem extends HookConsumerWidget {
+  final WalletViewData model;
+
   const CoinItem({
     super.key,
     required this.model,
   });
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final detailController = ref.watch(detailControllerProvider);
+
     Size size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height * .12,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        border: Border(
-          top: BorderSide(
-            color: Color.fromARGB(255, 227, 228, 235),
-            width: 2,
+    return GestureDetector(
+      onTap: () {
+        detailController.coin = model.coin;
+
+        Navigator.pushNamed(context, DetailsPage.routeName, arguments: model);
+      },
+      child: Container(
+        height: size.height * .12,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          border: Border(
+            top: BorderSide(
+              color: Color.fromARGB(255, 227, 228, 235),
+              width: 2,
+            ),
           ),
         ),
-      ),
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: size.width * .03,
-          vertical: size.height * .02,
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CoinImage(image: model.iconCoin),
-            CoinBalanceDetail(model: model),
-            Padding(
-              padding: EdgeInsets.only(
-                top: size.height * .009,
-                left: size.width * .04,
-              ),
-              child: const Icon(
-                Icons.arrow_forward_ios_sharp,
-                size: 14,
-              ),
-            )
-          ],
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: size.width * .03, vertical: size.height * .02),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CoinImage(image: model.coin.image!.large),
+              CoinBalanceDetail(model: model),
+              Padding(
+                padding: EdgeInsets.only(
+                    top: size.height * .009, left: size.width * .04),
+                child: const Icon(
+                  Icons.arrow_forward_ios_sharp,
+                  size: 14,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

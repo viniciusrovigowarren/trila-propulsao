@@ -1,19 +1,18 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:intl/intl.dart';
 
-import '../../controller/wallet_controller.dart';
-import '../../model/coin_model.dart';
-import '../../provider/provider.dart';
+import '../../shared/utils/util.dart';
+import '../model/wallet_view_data.dart';
+import '../provider/provider.dart';
 
-class CoinBalance extends HookConsumerWidget {
-  const CoinBalance({
+class CoinPercentage extends HookConsumerWidget {
+  final WalletViewData model;
+
+  const CoinPercentage({
     Key? key,
     required this.model,
   }) : super(key: key);
-
-  final CoinModel model;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,21 +22,19 @@ class CoinBalance extends HookConsumerWidget {
     return Container(
       alignment: Alignment.centerRight,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: WalletController.getContainerValueColor(
-          viewWalletValue.state,
-        ),
+        borderRadius: BorderRadius.circular(7),
+        color: Util.getContainerValueColor(viewWalletValue.state),
       ),
-      width: size.width * .24,
-      height: size.height * .026,
+      width: size.width * .20,
+      height: size.height * .023,
       child: Visibility(
         visible: (viewWalletValue.state),
         child: AutoSizeText(
-          NumberFormat.simpleCurrency(locale: 'en_US', decimalDigits: 2)
-              .format((model.currentPrice.toDouble())),
+          maxLines: 1,
+          "${model.percent.toStringAsFixed(2)} ${model.coin.symbol}",
           style: const TextStyle(
-            color: Colors.black,
-            fontSize: 21,
+            color: Color.fromARGB(255, 117, 118, 128),
+            fontSize: 16,
           ),
         ),
       ),

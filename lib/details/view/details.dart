@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../portifolio/model/coin_model.dart';
-import '../provider/provider.dart';
+import '../../portifolio/model/wallet_view_data.dart';
 import '../widgets/details_body.dart';
 
-class DetailsPage extends HookConsumerWidget {
-  final CoinModel model;
+class DetailsPage extends StatelessWidget {
+  static const routeName = '/details-page';
 
   const DetailsPage({
     Key? key,
-    required this.model,
   }) : super(key: key);
 
-  static const routeName = '/details-page';
-
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final timeFrame = ref.watch(timeFrameProvider.state);
-    return DatailsBody(model: model, timeFrame: timeFrame);
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        title: const Text('Detalhes'),
+      ),
+      body: DatailsBody(
+        model: ModalRoute.of(context)!.settings.arguments as WalletViewData,
+      ),
+    );
   }
 }

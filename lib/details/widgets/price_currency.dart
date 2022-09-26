@@ -1,8 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 
 class PriceCurrency extends StatelessWidget {
-  final double priceCUrrency;
+  final Decimal priceCUrrency;
 
   const PriceCurrency({
     Key? key,
