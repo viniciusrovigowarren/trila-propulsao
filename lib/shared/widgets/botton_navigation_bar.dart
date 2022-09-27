@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../movements/movements_page.dart';
-import '../../portifolio/provider/provider.dart';
 import '../../portifolio/view/portifolio.dart';
+import '../provider/providers_shared.dart';
 import '../utils/assets.dart';
 
 class BottomNavBar extends HookConsumerWidget {

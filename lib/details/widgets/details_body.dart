@@ -1,93 +1,62 @@
+import 'dart:async';
+
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../portifolio/model/coin_model.dart';
-import '../../portifolio/view/portifolio.dart';
-import 'button_convert_coin.dart';
-import 'graphic.dart';
-import 'header_details.dart';
-import 'price_currency.dart';
-import 'qtd_currency.dart';
-import 'time_frame.dart';
-import 'value_coin.dart';
-import 'variation_currency.dart';
+import '../../portifolio/model/wallet_view_data.dart';
+import '../../shared/api/models/coin_prices/coin_price_response.dart';
+import '../provider/provider.dart';
+import 'detail_chart.dart';
+import 'detail_description.dart';
+import 'detail_header.dart';
+import 'loading_details.dart';
 
-class DatailsBody extends StatelessWidget {
-  final CoinModel model;
-  final StateController<int> timeFrame;
+class DatailsBody extends StatefulHookConsumerWidget {
+  final WalletViewData model;
 
   const DatailsBody({
     Key? key,
     required this.model,
-    required this.timeFrame,
   }) : super(key: key);
 
   @override
+  BodyDetailState createState() => BodyDetailState();
+}
+
+class BodyDetailState extends ConsumerState<DatailsBody> {
+  @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          leading: GestureDetector(
-            onTap: () {
-              Navigator.pushReplacementNamed(
-                context,
-                PortifolioPage.routeName,
-              );
-            },
-            child: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.black,
-            ),
-          ),
-          backgroundColor: Colors.white,
-          title: const Text(
-            'Detalhes',
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(15),
-            child: Column(
-              children: [
-                HeaderDetails(
-                  nameCoin: model.nameCoin,
-                  imgIcon: model.iconCoin,
-                  ticker: model.ticker,
-                  currentPrice: model.currentPrice.toDouble(),
-                ),
-                Graphic(model: model),
-                const TimeFrame(),
-                Column(
-                  children: [
-                    PriceCurrency(
-                      priceCUrrency: pS(
-                        model.prices[timeFrame.state - 1],
-                      ),
-                    ),
-                    VariationCurrency(
-                      variationCurrency: (-model.prices.first.toDouble() +
-                          model.prices[timeFrame.state - 1].toDouble()),
-                    ),
-                    QtdCoin(
-                      priceCUrrency: model.coinBalance.toDouble(),
-                      initialsCoin: model.ticker,
-                    ),
-                    ValueCoin(
-                        priceCurrency: pS(
-                      model.prices[timeFrame.state - 1] * model.coinBalance,
-                    )),
-                  ],
-                ),
-                ButtonConvertCoin(onPressed: () {})
-              ],
-            ),
+    Size size = MediaQuery.of(context).size;
+    final coinHistoryPriceProvider = ref.read(coinHistoryPricesProvider);
+    final detailController = ref.watch(detailControllerProvider);
+    return coinHistoryPriceProvider.when(data: (data) {
+      detailController
+          .setCoinHistoryPriceValues(data as List<CoinValueResponse>);
+      return Column(
+        children: [
+          DetailsHeader(model: widget.model),
+          DetailChart(model: widget.model),
+          DetailDescription(data: data, model: widget.model)
+        ],
+      );
+    }, error: (error, stackTrace) {
+      return Center(
+        child: AutoSizeText(
+          maxLines: 1,
+          'Ops, algo aconteceu! Tente novamente mais tarde ',
+          style: TextStyle(
+            fontFamily: "Mansny regular",
+            fontWeight: FontWeight.bold,
+            fontSize: size.height * 0.040,
           ),
         ),
-      ),
-    );
+      );
+    }, loading: () {
+      Timer(const Duration(seconds: 1), () {
+        setState(() {});
+      });
+      return LoadingDetails(size: size);
+    });
   }
 }

@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../controller/wallet_controller.dart';
-import '../../provider/provider.dart';
+import '../../shared/utils/util.dart';
+import '../provider/provider.dart';
 
-class CryptoTitle extends HookConsumerWidget {
-  const CryptoTitle({
-    Key? key,
-  }) : super(key: key);
+class CoinTitle extends HookConsumerWidget {
+  const CoinTitle({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Size size = MediaQuery.of(context).size;
     final viewWalletValue = ref.watch(viewWalletValueProvider.state);
+
     return Padding(
       padding: const EdgeInsets.only(),
       child: Row(
@@ -28,7 +27,7 @@ class CryptoTitle extends HookConsumerWidget {
               viewWalletValue.state = !viewWalletValue.state;
             },
             icon: Icon(
-              WalletController.getVisibilityIconData(viewWalletValue.state),
+              Util.getVisibilityIconData(viewWalletValue.state),
               size: size.height * 0.04,
             ),
           )

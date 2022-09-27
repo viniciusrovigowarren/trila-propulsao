@@ -1,14 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class HeaderDetails extends StatelessWidget {
-  final double currentPrice;
+class DetailsHeader1 extends StatelessWidget {
+  final Decimal currentPrice;
   final String nameCoin;
   final String ticker;
   final String imgIcon;
 
-  const HeaderDetails({
+  const DetailsHeader1({
     Key? key,
     required this.currentPrice,
     required this.nameCoin,

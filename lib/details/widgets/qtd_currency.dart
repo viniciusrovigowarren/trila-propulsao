@@ -1,8 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 
 class QtdCoin extends StatelessWidget {
-  final double priceCUrrency;
+  final Decimal priceCUrrency;
   final String initialsCoin;
 
   const QtdCoin({

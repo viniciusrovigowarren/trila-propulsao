@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../shared/widgets/botton_navigation_bar.dart';
-import '../widgets/body_portifolio.dart';
+import '../widgets/portfolio_body.dart';
 
 class PortifolioPage extends StatelessWidget {
   const PortifolioPage({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class PortifolioPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: BodyPortifolioPage(),
+      body: BodyPortfolio(),
       bottomNavigationBar: BottomNavBar(),
     );
   }

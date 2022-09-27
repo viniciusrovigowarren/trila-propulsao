@@ -16,7 +16,7 @@ class ButtonConvertCoin extends StatelessWidget {
 
     return MaterialButton(
       color: colorMagenta,
-      minWidth: size.width,
+      minWidth: size.width * 0.9,
       height: 60,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
