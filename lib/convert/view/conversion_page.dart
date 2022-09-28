@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../widgets/body_convert.dart';
 
-class ConvertionPage extends StatelessWidget {
-  const ConvertionPage({Key? key}) : super(key: key);
+class ConversionPage extends StatelessWidget {
+  const ConversionPage({Key? key}) : super(key: key);
   static const routeName = '/convert-page';
 
   @override
