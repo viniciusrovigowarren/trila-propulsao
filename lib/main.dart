@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:trilha_propulsao/portifolio/view/portifolio.dart';
+import 'package:trilha_propulsao/portifolio/view/portifolio_page.dart';
 
 import 'core/routes.dart';
 
@@ -19,4 +19,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-//

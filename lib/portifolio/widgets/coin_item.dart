@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:trilha_propulsao/portifolio/provider/provider.dart';
 
 import '../../details/provider/provider.dart';
 import '../../details/view/details.dart';
@@ -17,11 +18,14 @@ class CoinItem extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final detailController = ref.watch(detailControllerProvider);
+    final walletController = ref.watch(walletControllerProvider);
 
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
+        walletController.selectedWalletCoin = model;
         detailController.coin = model.coin;
+        final coinHistoryPriceProvider = ref.refresh(coinHistoryPricesProvider);
 
         Navigator.pushNamed(context, DetailsPage.routeName, arguments: model);
       },

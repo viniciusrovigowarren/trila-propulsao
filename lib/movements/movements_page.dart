@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../portifolio/view/portifolio.dart';
+import '../portifolio/view/portifolio_page.dart';
 import '../shared/provider/providers_shared.dart';
 import '../shared/widgets/botton_navigation_bar.dart';
 
