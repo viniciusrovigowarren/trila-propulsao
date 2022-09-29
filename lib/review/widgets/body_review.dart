@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:trilha_propulsao/review/widgets/title_conversion.dart';
 
+import '../../portifolio/model/coin_view_data.dart';
+import 'button_conversion_done.dart';
 import 'line_details_conversion.dart';
 
 class BodyReview extends StatelessWidget {
@@ -11,9 +14,22 @@ class BodyReview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
-        TitleConversion(),
-        LineDetailsConversion(label: '', value: ''),
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const TitleConversion(),
+        SizedBox(
+          child: Column(
+            children: const [
+              LineDetailsConversion(label: 'Converter', value: '0.0008222 BTC'),
+              LineDetailsConversion(label: 'Receber', value: '0.0097 ETH'),
+              LineDetailsConversion(
+                  label: 'Câmbio', value: '1 BTC = 11.77 ETH'),
+              SizedBox(height: 15),
+              ButtonConversionDone(),
+              SizedBox(height: 20)
+            ],
+          ),
+        ),
       ],
     );
   }
