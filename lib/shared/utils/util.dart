@@ -1,4 +1,5 @@
 import 'package:decimal/decimal.dart';
+import 'package:easy_mask/easy_mask.dart';
 import 'package:flutter/material.dart';
 
 Decimal pD(String source) => Decimal.parse(source);
@@ -25,5 +26,17 @@ class Util {
 
   static String getDTToTimestamp() {
     return (DateTime.now().millisecondsSinceEpoch / 1000).round().toString();
+  }
+
+  static TextInputMask getTextInputFormatter(double percentCoin) {
+    String integerSpace = '';
+    for (var i = 0; i < percentCoin.truncate().toString().length; i++) {
+      integerSpace = integerSpace + 9.toString();
+    }
+    return TextInputMask(mask: ['$integerSpace.999999999999999999999']);
+  }
+
+  static String getFormatedPercentage(double percentage, String ticker) {
+    return "${percentage.toString()} $ticker";
   }
 }

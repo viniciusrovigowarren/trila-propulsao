@@ -45,7 +45,10 @@ class DetailDescription extends HookConsumerWidget {
                 .format(DecimalIntl(
                     Decimal.parse((model.userBalance.toDouble()).toString()))),
           ),
-          ButtonConvertCoin(onPressed: () {}),
+          ButtonConvertCoin(
+            data: data,
+            coin: model.coin,
+          ),
         ],
       ),
     );

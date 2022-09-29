@@ -44,6 +44,7 @@ dependencies:
   dio: ^4.0.6
   json_serializable: ^6.4.0
   shimmer: ^2.0.0
+  easy_mask: ^2.0.1
 
 dev_dependencies:
   flutter_test:
