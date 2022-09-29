@@ -57,37 +57,40 @@ class AnimatedTransitionState extends State<AnimatedTransition>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: InkWell(
-          onTap: () {
-            scaleController.forward();
-          },
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              CircleAvatar(
-                radius: 50,
-                backgroundColor: colorMagenta,
-                child: AnimatedBuilder(
-                  animation: scaleAnimation,
-                  builder: (c, child) => Transform.scale(
-                    scale: scaleAnimation.value * 4,
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: colorMagenta,
-                      ),
+    final size = MediaQuery.of(context).size;
+    return Center(
+      child: InkWell(
+        onTap: () {
+          scaleController.forward();
+        },
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(
+              color: colorMagenta,
+              width: size.width * 0.9,
+              height: 60,
+              child: AnimatedBuilder(
+                animation: scaleAnimation,
+                builder: (c, child) => Transform.scale(
+                  scale: scaleAnimation.value * 4,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: colorMagenta,
                     ),
                   ),
                 ),
               ),
-              const Icon(
-                Icons.arrow_forward,
-                size: 18,
+            ),
+            const Text(
+              'Concluir conversão',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 17,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

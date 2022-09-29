@@ -59,9 +59,12 @@ class TotalConvert extends HookConsumerWidget {
                 ? const Color.fromARGB(255, 244, 43, 87)
                 : const Color.fromARGB(255, 150, 150, 150),
             onPressed: () {
-              Navigator.pushNamed(context, AnimatedTransition.routeName);
+              Navigator.pushNamed(context, ReviewPage.routeName);
             },
-            child: const AnimatedTransition(),
+            child: const Icon(
+              Icons.arrow_forward,
+              size: 18,
+            ),
           ),
         ],
       ),

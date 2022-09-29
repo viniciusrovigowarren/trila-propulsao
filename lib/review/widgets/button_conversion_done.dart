@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trilha_propulsao/convert/view/conversion_page.dart';
 
 import '../../completion/view/completion_page.dart';
+import '../../completion/widgets/animated_transition.dart';
 import '../../convert/provider/convert_provider.dart';
 import '../../portifolio/model/coin_view_data.dart';
 import '../../shared/api/models/coin_prices/coin_price_response.dart';
@@ -23,22 +24,20 @@ class ButtonConversionDone extends HookConsumerWidget {
     final convertController = ref.watch(convertControllerProvider);
     final size = MediaQuery.of(context).size;
 
-    return MaterialButton(
-      color: colorMagenta,
-      minWidth: size.width * 0.9,
-      height: 60,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      onPressed: () {
-        Navigator.pushNamed(context, CompletionPage.routeName);
-      },
-      child: const Text(
-        'Concluir conversão',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 17,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: MaterialButton(
+        color: colorMagenta,
+        minWidth: size.width * 0.9,
+        elevation: 2,
+        height: 60,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
         ),
+        onPressed: () {
+          Navigator.pushNamed(context, CompletionPage.routeName);
+        },
+        child: const AnimatedTransition(),
       ),
     );
   }
