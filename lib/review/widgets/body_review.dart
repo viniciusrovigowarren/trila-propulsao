@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:trilha_propulsao/review/widgets/title_conversion.dart';
 
-import '../../portifolio/model/coin_view_data.dart';
 import 'button_conversion_done.dart';
 import 'line_details_conversion.dart';
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trilha_propulsao/convert/view/conversion_page.dart';
 
+import '../../completion/view/completion_page.dart';
 import '../../convert/provider/convert_provider.dart';
 import '../../portifolio/model/coin_view_data.dart';
 import '../../shared/api/models/coin_prices/coin_price_response.dart';
@@ -29,7 +30,9 @@ class ButtonConversionDone extends HookConsumerWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, CompletionPage.routeName);
+      },
       child: const Text(
         'Concluir conversão',
         style: TextStyle(

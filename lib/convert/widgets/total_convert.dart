@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../completion/widgets/animated_transition.dart';
 import '../../review/view/review_page.dart';
 import '../provider/convert_provider.dart';
 
 class TotalConvert extends HookConsumerWidget {
   const TotalConvert({super.key});
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    late AnimationController scaleController;
     Size size = MediaQuery.of(context).size;
     final convertController = ref.watch(convertControllerProvider);
 
@@ -58,13 +59,10 @@ class TotalConvert extends HookConsumerWidget {
                 ? const Color.fromARGB(255, 244, 43, 87)
                 : const Color.fromARGB(255, 150, 150, 150),
             onPressed: () {
-              Navigator.pushNamed(context, ReviewPage.routeName);
+              Navigator.pushNamed(context, AnimatedTransition.routeName);
             },
-            child: const Icon(
-              Icons.arrow_forward,
-              size: 18,
-            ),
-          )
+            child: const AnimatedTransition(),
+          ),
         ],
       ),
     );
