@@ -25,7 +25,7 @@ class ButtonConversionDone extends HookConsumerWidget {
     final size = MediaQuery.of(context).size;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
       child: MaterialButton(
         color: colorMagenta,
         minWidth: size.width * 0.9,

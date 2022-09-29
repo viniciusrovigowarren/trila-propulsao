@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../portifolio/controller/wallet_controller.dart';
+import '../../convert/provider/convert_provider.dart';
 import '../../portifolio/model/coin_view_data.dart';
 
-class LineDetailsConversion extends StatelessWidget {
+class LineDetailsReceive extends HookConsumerWidget {
   final String label;
 
-  final WalletController walletController;
   final CoinViewData coin;
 
-  const LineDetailsConversion({
+  const LineDetailsReceive({
     Key? key,
     required this.label,
-    required this.walletController,
     required this.coin,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final convertController = ref.watch(convertControllerProvider);
     final size = MediaQuery.of(context).size;
     return Builder(builder: (context) {
       return Padding(
@@ -45,7 +45,7 @@ class LineDetailsConversion extends StatelessWidget {
                 ),
               ),
               Text(
-                '${walletController.selectedWalletCoin.percent.toString()} ${coin.symbol}',
+                '${convertController.getConvertValueReverse()} ',
                 style: const TextStyle(
                   color: Color.fromARGB(255, 47, 47, 51),
                   fontWeight: FontWeight.w400,

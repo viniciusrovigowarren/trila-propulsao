@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../portifolio/model/coin_view_data.dart';
 import '../widgets/body_review.dart';
 
 class ReviewPage extends StatelessWidget {
-  const ReviewPage({
-    Key? key,
-  }) : super(key: key);
+  const ReviewPage({Key? key}) : super(key: key);
   static const routeName = '/review-page';
 
   @override

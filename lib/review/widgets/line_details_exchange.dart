@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../convert/controller/convert_controller.dart';
+import '../../convert/provider/convert_provider.dart';
 import '../../portifolio/controller/wallet_controller.dart';
 import '../../portifolio/model/coin_view_data.dart';
 
-class LineDetailsConversion extends StatelessWidget {
+class LineDetailsExchange extends HookConsumerWidget {
   final String label;
 
   final WalletController walletController;
   final CoinViewData coin;
 
-  const LineDetailsConversion({
+  const LineDetailsExchange({
     Key? key,
     required this.label,
     required this.walletController,
@@ -17,9 +20,13 @@ class LineDetailsConversion extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final convertController = ref.watch(convertControllerProvider);
     final size = MediaQuery.of(context).size;
     return Builder(builder: (context) {
+      final double result =
+          double.parse(convertController.getConvertValueWithoutSymbol()) /
+              walletController.selectedWalletCoin.percent;
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Container(
@@ -45,7 +52,7 @@ class LineDetailsConversion extends StatelessWidget {
                 ),
               ),
               Text(
-                '${walletController.selectedWalletCoin.percent.toString()} ${coin.symbol}',
+                '1 ${coin.symbol} = $result ${convertController.coinToConvert.symbol}',
                 style: const TextStyle(
                   color: Color.fromARGB(255, 47, 47, 51),
                   fontWeight: FontWeight.w400,

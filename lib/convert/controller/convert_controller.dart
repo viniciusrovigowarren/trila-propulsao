@@ -66,4 +66,18 @@ class ConvertController extends ChangeNotifier {
 
     return '${coinToConvert.symbol} ${(dolarValue.toDouble() / currentAssetPriceToConvert).toString()}';
   }
+
+  String getConvertValueReverse() {
+    Decimal dolarValue = Decimal.parse(
+        (currentAssetPrice * _convertValue.toDouble()).toString());
+
+    return '${(dolarValue.toDouble() / currentAssetPriceToConvert).toString()} ${coinToConvert.symbol}';
+  }
+
+  String getConvertValueWithoutSymbol() {
+    Decimal dolarValue = Decimal.parse(
+        (currentAssetPrice * _convertValue.toDouble()).toString());
+
+    return '${(dolarValue.toDouble() / currentAssetPriceToConvert).toString()}';
+  }
 }
