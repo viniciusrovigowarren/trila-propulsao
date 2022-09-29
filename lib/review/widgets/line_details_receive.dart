@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -44,12 +45,16 @@ class LineDetailsReceive extends HookConsumerWidget {
                   fontSize: 17,
                 ),
               ),
-              Text(
-                '${convertController.getConvertValueReverse()} ',
-                style: const TextStyle(
-                  color: Color.fromARGB(255, 47, 47, 51),
-                  fontWeight: FontWeight.w400,
-                  fontSize: 18,
+              SizedBox(
+                width: size.width * 0.7,
+                child: AutoSizeText(
+                  textAlign: TextAlign.end,
+                  '${convertController.getConvertValueReverse()} ',
+                  style: const TextStyle(
+                    color: Color.fromARGB(255, 47, 47, 51),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 18,
+                  ),
                 ),
               ),
             ],

@@ -31,6 +31,7 @@ class BodyCompletion extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
+          SizedBox(height: 10),
           AutoSizeText(
             'Conversão de moeda efetuada com sucesso!',
             maxLines: 1,

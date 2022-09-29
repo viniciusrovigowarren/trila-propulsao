@@ -44,6 +44,8 @@ class BodyReviewState extends ConsumerState<BodyReview>
                 label: 'Converter',
                 walletController: walletController,
                 coin: coin,
+                convertController: convertController,
+                convertValueController: convertValueController,
               ),
               LineDetailsReceive(
                 label: 'Receber',
