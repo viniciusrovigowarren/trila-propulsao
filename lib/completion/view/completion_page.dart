@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trilha_propulsao/portifolio/view/portifolio_page.dart';
 
+import '../../movements/movements_page.dart';
 import '../widgets/body_completion.dart';
 
 class CompletionPage extends StatelessWidget {
@@ -15,14 +15,14 @@ class CompletionPage extends StatelessWidget {
       appBar: AppBar(
         leading: GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, PortifolioPage.routeName);
+            Navigator.pushNamed(context, MovementsPage.routeName);
           },
-          child: Icon(Icons.close),
+          child: const Icon(Icons.close),
         ),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
       ),
-      body: BodyCompletion(),
+      body: const BodyCompletion(),
     );
   }
 }

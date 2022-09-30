@@ -1,27 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../convert/controller/convert_controller.dart';
-import '../../convert/widgets/form_field_coin.dart';
-import '../../portifolio/controller/wallet_controller.dart';
-import '../../portifolio/model/coin_view_data.dart';
-
 class LineDetailsConversion extends StatelessWidget {
   final String label;
-
-  final WalletController walletController;
-  final ConvertController convertController;
-  final TextEditingController convertValueController;
-
-  final CoinViewData coin;
+  final String value;
 
   const LineDetailsConversion({
     Key? key,
     required this.label,
-    required this.walletController,
-    required this.convertController,
-    required this.convertValueController,
-    required this.coin,
+    required this.value,
   }) : super(key: key);
 
   @override
@@ -55,8 +42,9 @@ class LineDetailsConversion extends StatelessWidget {
               SizedBox(
                 width: size.width * 0.7,
                 child: AutoSizeText(
+                  maxLines: 1,
                   textAlign: TextAlign.end,
-                  '${walletController.selectedWalletCoin.percent.toString()} ${coin.symbol}',
+                  value,
                   style: const TextStyle(
                     color: Color.fromARGB(255, 47, 47, 51),
                     fontWeight: FontWeight.w400,

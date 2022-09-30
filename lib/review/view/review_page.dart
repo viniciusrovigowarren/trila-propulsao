@@ -14,7 +14,7 @@ class ReviewPage extends StatelessWidget {
         foregroundColor: Colors.black,
         title: const Text('Revisar'),
       ),
-      body: BodyReview(),
+      body: const BodyReview(),
     );
   }
 }
