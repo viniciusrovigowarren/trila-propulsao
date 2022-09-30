@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../movements/movements_page.dart';
+import '../../movements/views/movements_page.dart';
 import '../../portifolio/view/portifolio_page.dart';
 import '../provider/providers_shared.dart';
 import '../utils/assets.dart';

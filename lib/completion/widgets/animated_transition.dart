@@ -4,6 +4,8 @@ import 'package:trilha_propulsao/completion/view/completion_page.dart';
 import 'package:trilha_propulsao/convert/view/conversion_page.dart';
 import 'package:trilha_propulsao/shared/utils/assets.dart';
 
+import '../../portifolio/model/coin_view_data.dart';
+
 class AnimatedTransition extends StatefulWidget {
   static const routeName = '/custon-page';
 
@@ -32,7 +34,7 @@ class AnimatedTransitionState extends State<AnimatedTransition>
               context,
               AnimatingRoute(
                 page: const ConversionPage(),
-                route: const CompletionPage(),
+                route: CompletionPage(),
               ),
             );
             Timer(
@@ -57,6 +59,8 @@ class AnimatedTransitionState extends State<AnimatedTransition>
 
   @override
   Widget build(BuildContext context) {
+    CoinViewData coin =
+        ModalRoute.of(context)!.settings.arguments as CoinViewData;
     final size = MediaQuery.of(context).size;
     return Center(
       child: InkWell(

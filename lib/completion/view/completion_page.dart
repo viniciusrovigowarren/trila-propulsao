@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../movements/movements_page.dart';
+import '../../movements/views/movements_page.dart';
 import '../widgets/body_completion.dart';
 
 class CompletionPage extends StatelessWidget {
