@@ -49,6 +49,7 @@ class DetailDescription extends HookConsumerWidget {
             data: data,
             coin: model.coin,
           ),
+          const SizedBox(height: 10),
         ],
       ),
     );

@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../portifolio/model/coin_view_data.dart';
+import '../../review/view/review_page.dart';
 import '../provider/convert_provider.dart';
 
 class TotalConvert extends HookConsumerWidget {
-  const TotalConvert({super.key});
+  final CoinViewData coin;
+
+  const TotalConvert({
+    required this.coin,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    late AnimationController scaleController;
     Size size = MediaQuery.of(context).size;
     final convertController = ref.watch(convertControllerProvider);
 
@@ -56,12 +63,15 @@ class TotalConvert extends HookConsumerWidget {
             backgroundColor: convertController.isValidConversion
                 ? const Color.fromARGB(255, 244, 43, 87)
                 : const Color.fromARGB(255, 150, 150, 150),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, ReviewPage.routeName,
+                  arguments: coin);
+            },
             child: const Icon(
               Icons.arrow_forward,
               size: 18,
             ),
-          )
+          ),
         ],
       ),
     );

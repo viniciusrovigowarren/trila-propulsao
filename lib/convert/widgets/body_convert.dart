@@ -58,8 +58,8 @@ class BodyConvertState extends ConsumerState<BodyConvert>
         Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: const [
-              TotalConvert(),
+            children: [
+              TotalConvert(coin: coin),
             ],
           ),
         ),
