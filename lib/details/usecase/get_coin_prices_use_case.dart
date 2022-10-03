@@ -1,4 +1,4 @@
-import 'package:trilha_propulsao/details/mapper/coin_price_mapper.dart';
+import '../mapper/coin_price_mapper.dart';
 
 import '../../shared/api/models/coin_prices/coin_price_response.dart';
 import '../../shared/repository/coin_prices_repository.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trilha_propulsao/transactions/wigdet/transaction_item.dart';
+import 'transaction_item.dart';
 
 import '../model/transactions_model.dart';
 

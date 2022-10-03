@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trilha_propulsao/transactions/wigdet/value_down.dart';
+import 'value_down.dart';
 
 import '../../shared/utils/util.dart';
 import '../model/transactions_model.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:trilha_propulsao/shared/widgets/botton_navigation_bar.dart';
+import '../../shared/widgets/botton_navigation_bar.dart';
 
 import '../wigdet/body_movement.dart';
 

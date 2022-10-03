@@ -4,8 +4,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../completion/view/completion_page.dart';
 import '../../completion/widgets/animated_transition.dart';
 import '../../convert/provider/convert_provider.dart';
-import '../../transactions/provider/transactions_provider.dart';
 import '../../shared/utils/assets.dart';
+import '../../transactions/provider/transactions_provider.dart';
 
 class ButtonConversionDone extends StatefulHookConsumerWidget {
   const ButtonConversionDone({super.key});

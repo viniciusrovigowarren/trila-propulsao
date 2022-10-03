@@ -1,6 +1,6 @@
+import '../../shared/repository/coin_repository.dart';
 import '../mapper/coin_mapper.dart';
 import '../model/coin_view_data.dart';
-import '../../shared/repository/coin_repository.dart';
 
 class GetAllCoinUseCase {
   final CoinRepository repository;

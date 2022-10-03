@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-import 'package:trilha_propulsao/shared/utils/assets.dart';
+import '../../shared/utils/assets.dart';
 import '../../completion/view/completion_page.dart';
 import '../../convert/provider/convert_provider.dart';
 import '../../transactions/provider/transactions_provider.dart';

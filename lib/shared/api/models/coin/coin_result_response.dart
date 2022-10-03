@@ -1,5 +1,4 @@
 import 'coin_result_image_response.dart';
-
 import 'coin_result_market_data_response.dart';
 
 part 'coin_result_response.g.dart';
