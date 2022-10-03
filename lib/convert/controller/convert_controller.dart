@@ -54,7 +54,7 @@ class ConvertController extends ChangeNotifier {
     _coinPercent = Decimal.parse(convertValue);
   }
 
-  String getDolarFormatedValue() {
+  String moneyFormat() {
     return NumberFormat.simpleCurrency(name: 'US\$ ', decimalDigits: 2).format(
         DecimalIntl(Decimal.parse(
             (currentAssetPrice * _convertValue.toDouble()).toString())));
@@ -95,4 +95,14 @@ class ConvertController extends ChangeNotifier {
   String formatExchange() {
     return ' 1 ${currentCoin.symbol} = ${((currentAssetPrice / currentAssetPriceToConvert.toDouble()).toString())} ${coinToConvert.symbol}';
   }
+
+  Decimal ReceiveFormat() {
+    Decimal dolarValue = Decimal.parse(
+        (currentAssetPrice * _convertValue.toDouble()).toString());
+
+    return Decimal.parse(
+        (dolarValue.toDouble() / currentAssetPriceToConvert).toString());
+  }
+
+  Decimal DecimalMoney() => _convertValue;
 }

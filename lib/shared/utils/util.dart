@@ -2,6 +2,8 @@ import 'package:decimal/decimal.dart';
 import 'package:easy_mask/easy_mask.dart';
 import 'package:flutter/material.dart';
 
+import '../../transactions/model/transactions_model.dart';
+
 Decimal pD(String source) => Decimal.parse(source);
 double pS(Decimal source) => double.parse(source.toString());
 
@@ -20,6 +22,14 @@ class Util {
 
   static IconData getVisibilityIconData(bool visible) =>
       visible ? Icons.visibility : Icons.visibility_off;
+
+  static String getFormatedEntryValue(TransactionsModel movement) {
+    return '${movement.transactionsUp.toString()} ${movement.cryptoUp.symbol}';
+  }
+
+  static String getFormatedOutValue(TransactionsModel movement) {
+    return '${movement.transactionsDown.toString()} ${movement.cryptoDown.symbol}';
+  }
 
   static Color getVariationColor(String variation) =>
       variation.trim()[0] == '-' ? Colors.red : Colors.green;

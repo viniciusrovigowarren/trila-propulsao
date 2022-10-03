@@ -66,7 +66,7 @@ class FormFieldCoin extends StatelessWidget {
         ),
         hintText: '0,00',
         helperText: convertController.isValidConversion
-            ? convertController.getDolarFormatedValue()
+            ? convertController.moneyFormat()
             : convertController.helperMessage,
         helperStyle: TextStyle(
           fontSize: 15,

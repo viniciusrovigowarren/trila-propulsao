@@ -34,7 +34,7 @@ class AnimatedTransitionState extends State<AnimatedTransition>
               context,
               AnimatingRoute(
                 page: const ConversionPage(),
-                route: CompletionPage(),
+                route: const CompletionPage(),
               ),
             );
             Timer(
@@ -59,8 +59,6 @@ class AnimatedTransitionState extends State<AnimatedTransition>
 
   @override
   Widget build(BuildContext context) {
-    CoinViewData coin =
-        ModalRoute.of(context)!.settings.arguments as CoinViewData;
     final size = MediaQuery.of(context).size;
     return Center(
       child: InkWell(
@@ -72,8 +70,8 @@ class AnimatedTransitionState extends State<AnimatedTransition>
           children: [
             Container(
               color: colorMagenta,
-              width: size.width * 0.9,
-              height: 60,
+              width: 10,
+              height: 10,
               child: AnimatedBuilder(
                 animation: scaleAnimation,
                 builder: (c, child) => Transform.scale(
