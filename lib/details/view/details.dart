@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app.dart';
 import '../../portifolio/model/wallet_view_data.dart';
 import '../widgets/details_body.dart';
 
@@ -16,7 +17,7 @@ class DetailsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: const Text('Detalhes'),
+        title: Text(CoreString.of(context)!.details),
       ),
       body: DatailsBody(
         model: ModalRoute.of(context)!.settings.arguments as WalletViewData,

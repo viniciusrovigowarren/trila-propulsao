@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../l10n/app.dart';
 import '../../shared/utils/util.dart';
 import '../provider/provider.dart';
 
@@ -17,11 +18,13 @@ class CoinTitle extends HookConsumerWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('Cripto',
-              style: TextStyle(
-                  fontFamily: "Montserrat",
-                  color: const Color.fromARGB(255, 244, 43, 87),
-                  fontSize: size.height * .045)),
+          Text(
+            CoreString.of(context)!.crypto,
+            style: TextStyle(
+                fontFamily: "Montserrat",
+                color: const Color.fromARGB(255, 244, 43, 87),
+                fontSize: size.height * .045),
+          ),
           IconButton(
             onPressed: () {
               viewWalletValue.state = !viewWalletValue.state;

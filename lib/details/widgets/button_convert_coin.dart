@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../convert/view/conversion_page.dart';
 
 import '../../convert/provider/convert_provider.dart';
+import '../../l10n/app.dart';
 import '../../portifolio/model/coin_view_data.dart';
 import '../../shared/api/models/coin_prices/coin_price_response.dart';
 import '../../shared/utils/assets.dart';
@@ -34,9 +35,9 @@ class ButtonConvertCoin extends HookConsumerWidget {
         convertController.notifyListeners();
         Navigator.pushNamed(context, ConversionPage.routeName, arguments: coin);
       },
-      child: const Text(
-        'Converter moeda',
-        style: TextStyle(
+      child: Text(
+        CoreString.of(context)!.conv,
+        style: const TextStyle(
           color: Colors.white,
           fontSize: 17,
         ),
