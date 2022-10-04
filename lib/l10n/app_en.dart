@@ -91,4 +91,13 @@ class CoreStringEn extends CoreString {
 
   @override
   String get rev => 'Review';
+
+  @override
+  String get mov1 => 'You have no moves';
+
+  @override
+  String get mov2 => 'No moves';
+
+  @override
+  String get mov3 => 'Transactions';
 }

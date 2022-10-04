@@ -3,6 +3,7 @@ import 'package:empty_widget/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../l10n/app.dart';
 import '../model/transactions_model.dart';
 import '../provider/transactions_provider.dart';
 import 'listview_transactions.dart';
@@ -27,7 +28,7 @@ class MovementBody extends HookConsumerWidget {
               top: size.height * 0.05,
             ),
             child: AutoSizeText(
-              'Movimentações',
+              CoreString.of(context)!.mov3,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: size.height * .045,
@@ -42,8 +43,8 @@ class MovementBody extends HookConsumerWidget {
                 child: EmptyWidget(
                   image: null,
                   packageImage: PackageImage.Image_1,
-                  title: 'Sem movimentações',
-                  subTitle: 'Você não possui movimentações',
+                  title: CoreString.of(context)!.mov2,
+                  subTitle: CoreString.of(context)!.mov1,
                   titleTextStyle: const TextStyle(
                     fontSize: 22,
                     color: Color(0xff9da9c7),

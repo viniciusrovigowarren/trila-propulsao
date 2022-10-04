@@ -91,4 +91,13 @@ class CoreStringPt extends CoreString {
 
   @override
   String get pri => 'Current Price';
+
+  @override
+  String get mov1 => 'Você não possui movimentações';
+
+  @override
+  String get mov2 => 'Sem movimentações';
+
+  @override
+  String get mov3 => 'Movimentações';
 }

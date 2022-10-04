@@ -263,6 +263,24 @@ abstract class CoreString {
   /// In pt, this message translates to:
   /// **'Escolha uma moeda para converter'**
   String get pick;
+
+  /// No description provided for @pick.
+  ///
+  /// In pt, this message translates to:
+  /// **'Escolha uma moeda para converter'**
+  String get mov1;
+
+  /// No description provided for @pick.
+  ///
+  /// In pt, this message translates to:
+  /// **'Escolha uma moeda para converter'**
+  String get mov2;
+
+  /// No description provided for @pick.
+  ///
+  /// In pt, this message translates to:
+  /// **'Escolha uma moeda para converter'**
+  String get mov3;
 }
 
 class _CoreStringDelegate extends LocalizationsDelegate<CoreString> {
