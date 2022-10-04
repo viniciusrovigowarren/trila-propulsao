@@ -27,7 +27,10 @@ class BodyPortfolio extends HookConsumerWidget {
           allCoinsController.coins = data;
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [WalletHeader(), CoinList()],
+            children: const [
+              WalletHeader(),
+              CoinList(),
+            ],
           );
         },
         error: (error, stackTrace) => const AutoSizeText(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../l10n/app.dart';
 import '../../portifolio/model/coin_view_data.dart';
 import '../../review/view/review_page.dart';
 import '../provider/convert_provider.dart';
@@ -39,11 +40,11 @@ class TotalConvert extends HookConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(bottom: 5),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 5),
                 child: Text(
-                  'Total estimado',
-                  style: TextStyle(
+                  CoreString.of(context)!.totEst,
+                  style: const TextStyle(
                     fontWeight: FontWeight.w500,
                     color: Color.fromARGB(255, 117, 118, 128),
                   ),

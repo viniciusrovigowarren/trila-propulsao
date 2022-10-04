@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app.dart';
 import '../widgets/body_convert.dart';
 
 class ConversionPage extends StatelessWidget {
@@ -12,7 +13,7 @@ class ConversionPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: const Text('Converter'),
+        title: Text(CoreString.of(context)!.convert),
       ),
       body: const BodyConvert(),
     );

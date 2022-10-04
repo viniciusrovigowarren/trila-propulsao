@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:rounded_loading_button/rounded_loading_button.dart';
+import '../../l10n/app.dart';
 import '../../shared/utils/assets.dart';
 import '../../completion/view/completion_page.dart';
 import '../../convert/provider/convert_provider.dart';
@@ -41,15 +42,15 @@ class BodyReviewState extends ConsumerState<BodyReview>
           child: Column(
             children: [
               LineDetailsConversion(
-                label: 'Converter',
+                label: CoreString.of(context)!.convert,
                 value: convertController.formatedConvert(),
               ),
               LineDetailsConversion(
-                label: 'Receber',
+                label: CoreString.of(context)!.receive,
                 value: convertController.formatReceive(),
               ),
               LineDetailsConversion(
-                label: 'Câmbio',
+                label: CoreString.of(context)!.exc,
                 value: convertController.formatExchange(),
               ),
               Padding(
@@ -61,7 +62,7 @@ class BodyReviewState extends ConsumerState<BodyReview>
                   height: size.height * 0.08,
                   controller: controller,
                   onPressed: convertionSucess,
-                  child: const Text('Concluir conversão'),
+                  child: Text(CoreString.of(context)!.comp),
                 ),
               )
             ],
