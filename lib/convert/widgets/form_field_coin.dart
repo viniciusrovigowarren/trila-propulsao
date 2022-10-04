@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trilha_propulsao/shared/utils/assets.dart';
+import '../../shared/utils/assets.dart';
 
 import '../../portifolio/controller/wallet_controller.dart';
 import '../../portifolio/model/coin_view_data.dart';
@@ -66,7 +66,7 @@ class FormFieldCoin extends StatelessWidget {
         ),
         hintText: '0,00',
         helperText: convertController.isValidConversion
-            ? convertController.getDolarFormatedValue()
+            ? convertController.moneyFormat()
             : convertController.helperMessage,
         helperStyle: TextStyle(
           fontSize: 15,

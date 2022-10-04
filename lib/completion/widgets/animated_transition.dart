@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:trilha_propulsao/completion/view/completion_page.dart';
-import 'package:trilha_propulsao/convert/view/conversion_page.dart';
-import 'package:trilha_propulsao/shared/utils/assets.dart';
+import '../view/completion_page.dart';
+import '../../convert/view/conversion_page.dart';
+import '../../shared/utils/assets.dart';
+
+import '../../portifolio/model/coin_view_data.dart';
 
 class AnimatedTransition extends StatefulWidget {
   static const routeName = '/custon-page';
@@ -68,8 +70,8 @@ class AnimatedTransitionState extends State<AnimatedTransition>
           children: [
             Container(
               color: colorMagenta,
-              width: size.width * 0.9,
-              height: 60,
+              width: size.width * .1,
+              height: size.height * .15,
               child: AnimatedBuilder(
                 animation: scaleAnimation,
                 builder: (c, child) => Transform.scale(

@@ -3,16 +3,35 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../completion/view/completion_page.dart';
 import '../../completion/widgets/animated_transition.dart';
+import '../../convert/provider/convert_provider.dart';
 import '../../shared/utils/assets.dart';
+import '../../transactions/provider/transactions_provider.dart';
 
-class ButtonConversionDone extends HookConsumerWidget {
-  const ButtonConversionDone({
-    Key? key,
-  }) : super(key: key);
+class ButtonConversionDone extends StatefulHookConsumerWidget {
+  const ButtonConversionDone({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ButtonConversionDoneState createState() => ButtonConversionDoneState();
+}
+
+class ButtonConversionDoneState extends ConsumerState<ButtonConversionDone> {
+  bool btnConverIsPressed = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final convertController = ref.watch(convertControllerProvider);
+    final movementControler = ref.watch(transactionsControllerProvider);
     final size = MediaQuery.of(context).size;
+
+    Future<void> confirmConvertion() async {
+      movementControler.newTransation(convertController);
+      setState(() {
+        btnConverIsPressed = true;
+      });
+      Future.delayed(const Duration(seconds: 2)).then((value) {
+        Navigator.pushNamed(context, CompletionPage.routeName);
+      });
+    }
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
@@ -24,9 +43,7 @@ class ButtonConversionDone extends HookConsumerWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        onPressed: () {
-          Navigator.pushNamed(context, CompletionPage.routeName);
-        },
+        onPressed: confirmConvertion,
         child: const AnimatedTransition(),
       ),
     );

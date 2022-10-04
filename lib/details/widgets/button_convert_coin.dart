@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:trilha_propulsao/convert/view/conversion_page.dart';
+import '../../convert/view/conversion_page.dart';
 
 import '../../convert/provider/convert_provider.dart';
 import '../../portifolio/model/coin_view_data.dart';

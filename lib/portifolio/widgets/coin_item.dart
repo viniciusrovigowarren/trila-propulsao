@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:trilha_propulsao/portifolio/provider/provider.dart';
 
 import '../../details/provider/provider.dart';
 import '../../details/view/details.dart';
 import '../model/wallet_view_data.dart';
+import '../provider/provider.dart';
 import 'coin_balance_detail.dart';
 import 'coin_image.dart';
 

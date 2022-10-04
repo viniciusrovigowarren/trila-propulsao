@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../movements/movements_page.dart';
+import '../../transactions/view/transactions_page.dart';
 import '../../portifolio/view/portifolio_page.dart';
 import '../provider/providers_shared.dart';
 import '../utils/assets.dart';
@@ -63,7 +63,7 @@ class BottomNavBar extends HookConsumerWidget {
             onTap: () {
               pageIndex.state != 0
                   ? Navigator.pushReplacementNamed(
-                      context, MovementsPage.routeName)
+                      context, TransitionsPage.routeName)
                   : null;
               pageIndex.state = 0;
             },

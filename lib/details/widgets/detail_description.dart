@@ -4,7 +4,7 @@ import 'package:decimal/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:trilha_propulsao/details/widgets/button_convert_coin.dart';
+import 'button_convert_coin.dart';
 import '../../portifolio/model/coin_view_data.dart';
 import '../../portifolio/model/wallet_view_data.dart';
 import '../../shared/api/models/coin_prices/coin_price_response.dart';
