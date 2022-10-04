@@ -23,6 +23,7 @@
     }, 
     "quant" : "Quantidade",
     "vari" : "Variação",
+    "rev" : "Revisar",
     "pri" : "Preço atual",
     "value" : "Valor",
     "conv" : "Converter moeda",

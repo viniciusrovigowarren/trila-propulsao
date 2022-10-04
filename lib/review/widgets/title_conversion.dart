@@ -1,6 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app.dart';
+
 class TitleConversion extends StatelessWidget {
   const TitleConversion({
     Key? key,
@@ -8,12 +10,12 @@ class TitleConversion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(15),
+    return Padding(
+      padding: const EdgeInsets.all(15),
       child: AutoSizeText(
         maxLines: 2,
-        'Revise os dados da sua conversão',
-        style: TextStyle(
+        CoreString.of(context)!.review,
+        style: const TextStyle(
           fontSize: 34,
           fontWeight: FontWeight.w600,
         ),

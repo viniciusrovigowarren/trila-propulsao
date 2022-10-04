@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app.dart';
 import '../widgets/body_review.dart';
 
 class ReviewPage extends StatelessWidget {
@@ -12,7 +13,7 @@ class ReviewPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: const Text('Revisar'),
+        title: Text(CoreString.of(context)!.rev),
       ),
       body: const BodyReview(),
     );

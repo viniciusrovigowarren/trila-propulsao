@@ -72,6 +72,9 @@ class CoreStringPt extends CoreString {
   String get writeS => 'Digite algo';
 
   @override
+  String get rev => 'Revisar';
+
+  @override
   String get theValue => 'O valor não pode começar com um caractere especial';
 
   @override

@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import '../../l10n/app.dart';
 import '../../portifolio/model/coin_view_data.dart';
 import '../../portifolio/provider/provider.dart';
 import '../../shared/utils/util.dart';
@@ -28,9 +29,9 @@ class UserCoinBalance extends HookConsumerWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Text(
-            'Saldo disponível',
-            style: TextStyle(
+          Text(
+            CoreString.of(context)!.avai,
+            style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w500,
               color: Color.fromARGB(255, 117, 118, 128),

@@ -132,6 +132,12 @@ abstract class CoreString {
   /// **'Variation in the last {days} days'**
   String variation(int days);
 
+  /// No description provided for @variation.
+  ///
+  /// In pt, this message translates to:
+  /// **'Variation in the last {days} days'**
+  String get review;
+
   /// No description provided for @quant.
   ///
   /// In pt, this message translates to:
@@ -184,7 +190,7 @@ abstract class CoreString {
   ///
   /// In pt, this message translates to:
   /// **'Revise os dados da sua conversão'**
-  String get review;
+  String get rev;
 
   /// No description provided for @convert.
   ///

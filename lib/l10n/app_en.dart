@@ -54,7 +54,7 @@ class CoreStringEn extends CoreString {
   String get receive => 'Receive';
 
   @override
-  String get exc => 'exchange';
+  String get exc => 'Exchange';
 
   @override
   String get comp => 'Complete conversion';
@@ -88,4 +88,7 @@ class CoreStringEn extends CoreString {
 
   @override
   String get pri => 'Current Price';
+
+  @override
+  String get rev => 'Review';
 }

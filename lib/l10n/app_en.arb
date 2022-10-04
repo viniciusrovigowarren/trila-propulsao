@@ -24,6 +24,7 @@
     "quant" : "Quantity",
     "pri" : "Current price",
     "vari" : "Variation",
+    "rev" : "Review",
     "value" : "Value",
     "conv" : "Convert coin",
     "avai" : "Available balance",
