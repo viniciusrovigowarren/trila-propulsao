@@ -12,6 +12,7 @@ class CoinList extends HookConsumerWidget {
     final walletController = ref.watch(walletControllerProvider);
 
     return Expanded(
+      flex: 1,
       child: RefreshIndicator(
         displacement: 25,
         strokeWidth: 3,

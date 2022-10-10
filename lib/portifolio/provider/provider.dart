@@ -6,7 +6,7 @@ import '../model/coin_view_data.dart';
 import '../usecase/get_all_coin_use_case.dart';
 
 final viewWalletValueProvider = StateProvider<bool>(
-  (ref) => true,
+  (ref) => false,
 );
 final getAllCoinUseCase = Provider((ref) {
   return GetAllCoinUseCase(repository: ref.read(coinRepositoryProvider));

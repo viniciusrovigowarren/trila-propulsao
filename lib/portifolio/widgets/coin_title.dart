@@ -19,11 +19,12 @@ class CoinTitle extends HookConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            CoreString.of(context)!.crypto,
+            'Cripto',
             style: TextStyle(
-                fontFamily: "Montserrat",
-                color: const Color.fromARGB(255, 244, 43, 87),
-                fontSize: size.height * .045),
+              fontFamily: "Montserrat",
+              color: const Color.fromARGB(255, 244, 43, 87),
+              fontSize: size.height * .045,
+            ),
           ),
           IconButton(
             onPressed: () {

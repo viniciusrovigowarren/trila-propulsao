@@ -15,6 +15,7 @@ class CoinItem extends HookConsumerWidget {
     super.key,
     required this.model,
   });
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final detailController = ref.watch(detailControllerProvider);
@@ -25,7 +26,6 @@ class CoinItem extends HookConsumerWidget {
       onTap: () {
         walletController.selectedWalletCoin = model;
         detailController.coin = model.coin;
-        final coinHistoryPriceProvider = ref.refresh(coinHistoryPricesProvider);
 
         Navigator.pushNamed(context, DetailsPage.routeName, arguments: model);
       },

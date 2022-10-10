@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:trilha_propulsao/portifolio/widgets/success_loading_body.dart';
 
 import '../../convert/provider/convert_provider.dart';
 import '../provider/provider.dart';
@@ -9,15 +10,54 @@ import 'coin_list.dart';
 import 'loading_wallet.dart';
 import 'wallet_header.dart';
 
+// class BodyPortfolio extends HookConsumerWidget {
+//   const BodyPortfolio({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     final getAllCoinsProvider = ref.watch(allCoinsProvider);
+//     final walletController = ref.watch(walletControllerProvider);
+//     final allCoinsController = ref.watch(allCoinsControllerProvider);
+
+//     return SafeArea(
+//       child: getAllCoinsProvider.when(
+//         data: (data) {
+//           walletController.coins =
+//               WalletRepository(allCoins: data).getAllUserCoin();
+
+//           allCoinsController.coins = data;
+//           return Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: const [
+//               WalletHeader(),
+//               CoinList(),
+//             ],
+//           );
+//         },
+//         error: (error, stackTrace) => const AutoSizeText(
+//           maxLines: 1,
+//           'Ops, algo deu errado ',
+//           style: TextStyle(
+//             fontFamily: "Mansny regular",
+//             fontWeight: FontWeight.bold,
+//             fontSize: 15,
+//           ),
+//         ),
+//         loading: () => const Loading(),
+//       ),
+//     );
+//   }
+// }
 class BodyPortfolio extends HookConsumerWidget {
-  const BodyPortfolio({Key? key}) : super(key: key);
+  const BodyPortfolio({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final getAllCoinsProvider = ref.watch(allCoinsProvider);
     final walletController = ref.watch(walletControllerProvider);
     final allCoinsController = ref.watch(allCoinsControllerProvider);
-
     return SafeArea(
       child: getAllCoinsProvider.when(
         data: (data) {
@@ -25,19 +65,12 @@ class BodyPortfolio extends HookConsumerWidget {
               WalletRepository(allCoins: data).getAllUserCoin();
 
           allCoinsController.coins = data;
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              WalletHeader(),
-              CoinList(),
-            ],
-          );
+          return const SuccessLoadingBody();
         },
         error: (error, stackTrace) => const AutoSizeText(
           maxLines: 1,
-          'Ops, algo deu errado ',
+          'Algo deu errado! ',
           style: TextStyle(
-            fontFamily: "Mansny regular",
             fontWeight: FontWeight.bold,
             fontSize: 15,
           ),

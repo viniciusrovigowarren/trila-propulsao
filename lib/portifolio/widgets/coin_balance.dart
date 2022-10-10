@@ -22,21 +22,24 @@ class CoinBalance extends HookConsumerWidget {
     final viewWalletValue = ref.watch(viewWalletValueProvider.state);
 
     return Container(
-        alignment: Alignment.centerRight,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(7),
-            color: Util.getContainerValueColor(viewWalletValue.state)),
-        width: size.width * .24,
-        height: size.height * .026,
-        child: Visibility(
-            visible: (viewWalletValue.state),
-            child: AutoSizeText(
-                maxLines: 1,
-                NumberFormat.simpleCurrency(name: 'US\$ ', decimalDigits: 2)
-                    .format(DecimalIntl(model.userBalance)),
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                ))));
+      alignment: Alignment.centerRight,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(7),
+          color: Util.getContainerValueColor(viewWalletValue.state)),
+      width: size.width * .24,
+      height: size.height * .026,
+      child: Visibility(
+        visible: (viewWalletValue.state),
+        child: AutoSizeText(
+          maxLines: 1,
+          NumberFormat.simpleCurrency(name: 'US\$ ', decimalDigits: 2)
+              .format(DecimalIntl(model.userBalance)),
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 14,
+          ),
+        ),
+      ),
+    );
   }
 }

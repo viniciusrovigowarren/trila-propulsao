@@ -132,49 +132,50 @@ class Loading extends StatelessWidget {
                   baseColor: Colors.grey.shade300,
                   highlightColor: Colors.grey.shade100,
                   child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CircleAvatar(
-                          radius: size.width * .12,
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(7),
-                                    color: Colors.amber,
-                                  ),
-                                  height: 10,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        radius: size.width * .12,
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7),
+                                  color: Colors.amber,
                                 ),
-                              ),
-                              const SizedBox(
                                 height: 10,
                               ),
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(7),
-                                    color: Colors.white,
-                                  ),
-                                  height: 10,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7),
+                                  color: Colors.white,
                                 ),
+                                height: 10,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                              top: size.height * .009, left: size.width * .04),
-                          child: const Icon(
-                            Icons.arrow_forward_ios_sharp,
-                            size: 14,
-                          ),
-                        )
-                      ]),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: size.height * .009, left: size.width * .04),
+                        child: const Icon(
+                          Icons.arrow_forward_ios_sharp,
+                          size: 14,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

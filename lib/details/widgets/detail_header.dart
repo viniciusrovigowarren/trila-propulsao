@@ -63,8 +63,11 @@ class CoinTitleDetail extends StatelessWidget {
           width: size.height * .06,
           height: size.height * .06,
           decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(image: NetworkImage(coinIcon))),
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: NetworkImage(coinIcon),
+            ),
+          ),
         ),
       ],
     );
