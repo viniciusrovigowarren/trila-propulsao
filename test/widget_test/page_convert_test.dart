@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/intl.dart';
 import 'package:network_image_mock/network_image_mock.dart';
+import 'package:trilha_propulsao/convert/controller/convert_controller.dart';
+import 'package:trilha_propulsao/convert/view/conversion_page.dart';
 import 'package:trilha_propulsao/convert/widgets/current_coin.dart';
 import 'package:trilha_propulsao/details/view/details.dart';
 import 'package:trilha_propulsao/details/widgets/detail_description.dart';

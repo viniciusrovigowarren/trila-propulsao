@@ -28,6 +28,7 @@ class BottomNavBar extends HookConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           InkWell(
+            key: const Key('Inkwell portifolio'),
             onTap: () {
               pageIndex.state != 1
                   ? Navigator.pushReplacementNamed(

@@ -9,6 +9,7 @@ import 'package:trilha_propulsao/portifolio/widgets/coin_image.dart';
 import 'package:trilha_propulsao/portifolio/widgets/coin_item.dart';
 import 'package:trilha_propulsao/portifolio/widgets/coin_list.dart';
 import 'package:trilha_propulsao/portifolio/widgets/coin_title.dart';
+import 'package:trilha_propulsao/portifolio/widgets/loading_wallet.dart';
 
 import '../helpers/mock.dart';
 import '../helpers/setup_widgets.dart';
@@ -58,6 +59,7 @@ void main() {
         expect(find.byType(Container), findsNWidgets(4));
       });
     });
+
     testWidgets('WHEN visibility IconButton tap THEN wallet balance hide',
         (WidgetTester tester) async {
       await loadDataPage(tester, const BodyCompletion());

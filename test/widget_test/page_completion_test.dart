@@ -95,6 +95,11 @@ void main() {
         expect(find.byType(NetworkImage), findsNothing);
         expect(find.byType(MediaQuery), findsNWidgets(7));
         expect(find.byType(NumberFormat), findsNothing);
+        await tester.tap(find.byType(GestureDetector));
+        expect(find.byType(BodyCompletion), findsNWidgets(1));
+        expect(find.byType(Column), findsOneWidget);
+        expect(find.byType(Center), findsNWidgets(4));
+        expect(find.byType(CircleAvatar), findsOneWidget);
       });
     });
     testWidgets('WHEN started sucess page THEN build completion page',
@@ -112,6 +117,8 @@ void main() {
         expect(find.byType(AnimatedBuilder), findsAtLeastNWidgets(6));
         expect(find.byType(Text), findsAtLeastNWidgets(1));
         expect(find.byType(Animation), findsNothing);
+        await tester.tap(find.byType(InkWell));
+        expect(find.byType(BodyCompletion), findsNWidgets(0));
       });
     });
   });
