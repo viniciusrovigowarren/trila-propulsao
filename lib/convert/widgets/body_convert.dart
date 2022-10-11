@@ -4,14 +4,19 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../portifolio/model/coin_view_data.dart';
 import '../../portifolio/provider/provider.dart';
 import '../provider/convert_provider.dart';
-import 'convert_row.dart';
 import 'conversion_title.dart';
+import 'convert_row.dart';
 import 'form_field_coin.dart';
 import 'total_convert.dart';
 import 'user_coin_balance.dart';
 
 class BodyConvert extends StatefulHookConsumerWidget {
-  const BodyConvert({super.key});
+  const BodyConvert({
+    this.coin,
+    super.key,
+  });
+
+  final CoinViewData? coin;
 
   @override
   BodyConvertState createState() => BodyConvertState();
@@ -19,23 +24,23 @@ class BodyConvert extends StatefulHookConsumerWidget {
 
 class BodyConvertState extends ConsumerState<BodyConvert>
     with SingleTickerProviderStateMixin {
+  CoinViewData? coin;
   TextEditingController convertValueController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    CoinViewData coin =
+    coin = widget.coin ??
         ModalRoute.of(context)!.settings.arguments as CoinViewData;
     final convertController = ref.watch(convertControllerProvider);
-    final allCoinsController = ref.watch(allCoinsControllerProvider);
+    // final allCoinsController = ref.watch(allCoinsControllerProvider);
     final walletController = ref.watch(walletControllerProvider);
-    convertController.refresh(allCoinsController.coinToConvert, coin,
-        walletController.selectedWalletCoin);
+    convertController.refresh(coin!, walletController.selectedWalletCoin);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        UserCoinBalance(model: coin),
+        UserCoinBalance(model: coin!),
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: size.width * 0.04,
@@ -45,12 +50,12 @@ class BodyConvertState extends ConsumerState<BodyConvert>
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const ConversionTitle(),
-              ConvertRow(coin: coin),
+              ConvertRow(coin: coin!),
               FormFieldCoin(
                 walletController: walletController,
                 convertController: convertController,
                 convertValueController: convertValueController,
-                coin: coin,
+                coin: coin!,
               ),
             ],
           ),
@@ -59,7 +64,7 @@ class BodyConvertState extends ConsumerState<BodyConvert>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              TotalConvert(coin: coin),
+              TotalConvert(coin: coin!),
             ],
           ),
         ),

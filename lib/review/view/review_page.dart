@@ -5,6 +5,7 @@ import '../widgets/body_review.dart';
 
 class ReviewPage extends StatelessWidget {
   const ReviewPage({Key? key}) : super(key: key);
+
   static const routeName = '/review-page';
 
   @override
@@ -13,7 +14,7 @@ class ReviewPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: Text(CoreString.of(context)!.rev),
+        title: const Text('Revisar'),
       ),
       body: const BodyReview(),
     );

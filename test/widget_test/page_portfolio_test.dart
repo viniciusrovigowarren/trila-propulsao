@@ -1,6 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
+import 'package:trilha_propulsao/completion/widgets/body_completion.dart';
 import 'package:trilha_propulsao/details/view/details.dart';
 import 'package:trilha_propulsao/portifolio/widgets/coin_balance_detail.dart';
 import 'package:trilha_propulsao/portifolio/widgets/coin_image.dart';
@@ -55,6 +57,15 @@ void main() {
         expect(find.byType(CoinTitle), findsNothing);
         expect(find.byType(Container), findsNWidgets(4));
       });
+    });
+    testWidgets('WHEN visibility IconButton tap THEN wallet balance hide',
+        (WidgetTester tester) async {
+      await loadDataPage(tester, const BodyCompletion());
+      final totalBalance = find.byType(AutoSizeText);
+
+      expect(find.byIcon(Icons.visibility_off), findsNothing);
+      expect(find.byType(IconButton), findsNothing);
+      expect(totalBalance, findsNWidgets(2));
     });
   });
 }

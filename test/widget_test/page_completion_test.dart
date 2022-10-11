@@ -1,10 +1,14 @@
+import 'dart:async';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:intl/intl.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 import 'package:trilha_propulsao/completion/view/completion_page.dart';
+import 'package:trilha_propulsao/completion/widgets/animated_transition.dart';
 import 'package:trilha_propulsao/completion/widgets/body_completion.dart';
+import 'package:trilha_propulsao/convert/view/conversion_page.dart';
 import 'package:trilha_propulsao/details/view/details.dart';
 import 'package:trilha_propulsao/details/widgets/detail_header.dart';
 import 'package:trilha_propulsao/l10n/app.dart';
@@ -91,6 +95,23 @@ void main() {
         expect(find.byType(NetworkImage), findsNothing);
         expect(find.byType(MediaQuery), findsNWidgets(7));
         expect(find.byType(NumberFormat), findsNothing);
+      });
+    });
+    testWidgets('WHEN started sucess page THEN build completion page',
+        (WidgetTester tester) async {
+      mockNetworkImagesFor(() async {
+        await loadDataPage(tester, const AnimatedTransition());
+
+        expect(find.byType(Duration), findsNothing);
+        expect(find.byType(Navigator), findsAtLeastNWidgets(1));
+        expect(find.byType(AnimatingRoute), findsNothing);
+        expect(find.byType(ConversionPage), findsNothing);
+        expect(find.byType(Timer), findsNothing);
+        expect(find.byType(InkWell), findsAtLeastNWidgets(1));
+        expect(find.byType(Stack), findsAtLeastNWidgets(1));
+        expect(find.byType(AnimatedBuilder), findsAtLeastNWidgets(6));
+        expect(find.byType(Text), findsAtLeastNWidgets(1));
+        expect(find.byType(Animation), findsNothing);
       });
     });
   });

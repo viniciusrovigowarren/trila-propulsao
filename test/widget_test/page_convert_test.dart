@@ -25,7 +25,7 @@ void main() {
       mockNetworkImagesFor(() async {
         await loadDataPage(
           tester,
-          CurrentCoin(model: data.getCoinData()),
+          CurrentCoin(model: data.getCoinViewData()),
         );
 
         expect(find.byType(AutoSizeText), findsOneWidget);

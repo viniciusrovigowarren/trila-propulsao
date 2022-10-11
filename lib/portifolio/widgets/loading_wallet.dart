@@ -33,8 +33,9 @@ class Loading extends StatelessWidget {
                   children: [
                     AnimatedContainer(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(7),
-                          color: Util.getContainerValueColor(true)),
+                        borderRadius: BorderRadius.circular(7),
+                        color: Util.getContainerValueColor(true),
+                      ),
                       duration: const Duration(milliseconds: 700),
                       width: size.width * 0.3,
                       height: size.height * .050,
@@ -42,8 +43,9 @@ class Loading extends StatelessWidget {
                         visible: false,
                         child: AutoSizeText(
                           NumberFormat.simpleCurrency(
-                                  name: 'US\$ ', decimalDigits: 2)
-                              .format(22),
+                            name: 'US\$ ',
+                            decimalDigits: 2,
+                          ).format(22),
                           style: TextStyle(
                             color: Colors.black,
                             fontFamily: "Montserrat",
@@ -54,8 +56,9 @@ class Loading extends StatelessWidget {
                     ),
                     AnimatedContainer(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(7),
-                          color: Util.getContainerValueColor(true)),
+                        borderRadius: BorderRadius.circular(7),
+                        color: Util.getContainerValueColor(true),
+                      ),
                       duration: const Duration(milliseconds: 700),
                       width: size.width * 0.1,
                       height: size.height * .04,
@@ -63,8 +66,9 @@ class Loading extends StatelessWidget {
                         visible: false,
                         child: AutoSizeText(
                           NumberFormat.simpleCurrency(
-                                  name: 'US\$ ', decimalDigits: 2)
-                              .format(22),
+                            name: 'US\$ ',
+                            decimalDigits: 2,
+                          ).format(22),
                           style: TextStyle(
                             color: Colors.black,
                             fontFamily: "Montserrat",
@@ -78,8 +82,9 @@ class Loading extends StatelessWidget {
                 const SizedBox(height: 3),
                 AnimatedContainer(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7),
-                      color: Util.getContainerValueColor(true)),
+                    borderRadius: BorderRadius.circular(7),
+                    color: Util.getContainerValueColor(true),
+                  ),
                   duration: const Duration(milliseconds: 700),
                   width: size.width * 0.55,
                   height: size.height * .050,
@@ -87,8 +92,9 @@ class Loading extends StatelessWidget {
                     visible: false,
                     child: AutoSizeText(
                       NumberFormat.simpleCurrency(
-                              name: 'US\$ ', decimalDigits: 2)
-                          .format(22),
+                        name: 'US\$ ',
+                        decimalDigits: 2,
+                      ).format(22),
                       style: TextStyle(
                         color: Colors.black,
                         fontFamily: "Montserrat",
@@ -127,7 +133,9 @@ class Loading extends StatelessWidget {
               ),
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: size.width * .03, vertical: size.height * .02),
+                  horizontal: size.width * .03,
+                  vertical: size.height * .02,
+                ),
                 child: Shimmer.fromColors(
                   baseColor: Colors.grey.shade300,
                   highlightColor: Colors.grey.shade100,
@@ -168,7 +176,9 @@ class Loading extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.only(
-                            top: size.height * .009, left: size.width * .04),
+                          top: size.height * .009,
+                          left: size.width * .04,
+                        ),
                         child: const Icon(
                           Icons.arrow_forward_ios_sharp,
                           size: 14,

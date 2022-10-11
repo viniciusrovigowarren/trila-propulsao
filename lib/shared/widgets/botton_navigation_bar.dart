@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../l10n/app.dart';
 import '../../transactions/view/transactions_page.dart';
 import '../../portifolio/view/portifolio_page.dart';
 import '../provider/providers_shared.dart';
@@ -47,7 +46,7 @@ class BottomNavBar extends HookConsumerWidget {
                   fit: BoxFit.cover,
                 ),
                 Text(
-                  CoreString.of(context)!.port,
+                  'Portifólio',
                   style: TextStyle(
                     fontSize: (pageIndex.state == 0)
                         ? size.width * 0.025
@@ -61,6 +60,7 @@ class BottomNavBar extends HookConsumerWidget {
             ),
           ),
           InkWell(
+            key: const Key('Inkwell movements'),
             onTap: () {
               pageIndex.state != 0
                   ? Navigator.pushReplacementNamed(
@@ -79,7 +79,7 @@ class BottomNavBar extends HookConsumerWidget {
                   fit: BoxFit.cover,
                 ),
                 Text(
-                  CoreString.of(context)!.move,
+                  'Movimentos',
                   style: TextStyle(
                     fontSize: (pageIndex.state == 1)
                         ? size.width * 0.025

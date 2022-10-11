@@ -17,7 +17,7 @@ class DetailsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: Text(CoreString.of(context)!.details),
+        title: Text('CoreString.of(context)!.details'),
       ),
       body: DatailsBody(
         model: ModalRoute.of(context)!.settings.arguments as WalletViewData,

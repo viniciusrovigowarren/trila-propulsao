@@ -16,18 +16,65 @@ class ConvertController extends ChangeNotifier {
   late CoinViewData coinToConvert;
   late CoinViewData currentCoin;
 
-  void refresh(CoinViewData coinToConvert, CoinViewData currentCoin,
-      WalletViewData userWallet) {
+  void refresh(CoinViewData currentCoin, WalletViewData userWallet) {
     this.currentCoin = currentCoin;
-    this.coinToConvert = coinToConvert;
     currentAssetPriceToConvert = coinToConvert.marketData!.current_price.usd;
     currentAssetPrice = currentCoin.marketData!.current_price.usd;
-    _setCoinPercent(userWallet.percent.toString());
+    setCoinPercent(userWallet.percent.toString());
 
-    isValidConversion =
-        (currentCoin != coinToConvert) && (_coinPercent >= _convertValue);
+    isValidConversion = (_isRedundantConvert() &&
+        _isAvaiableBalance() &&
+        _isConvertValueNotEmpty());
+  }
+
+  void setCoinToConvert(CoinViewData coinToConvert) {
+    this.coinToConvert = coinToConvert;
+    validateConversion();
+  }
+
+  void setCoinPercent(String convertValue) {
+    _coinPercent = Decimal.parse(convertValue);
+  }
+
+  bool _isRedundantConvert() {
     if (currentCoin == coinToConvert) {
+      isValidConversion = false;
       helperMessage = 'Selecione uma moeda diferente para conversão';
+      return isValidConversion;
+    }
+    return isValidConversion = true;
+  }
+
+  void initValues(CoinViewData coinToConvert) {
+    setConvertValue('0');
+    setCoinToConvert(coinToConvert);
+  }
+
+  void validateConversion() {
+    if (_isConvertValueNotEmpty()) {
+      _isAvaiableBalance();
+    }
+    notifyListeners();
+  }
+
+  bool _isAvaiableBalance() {
+    if (_coinPercent < _convertValue) {
+      isValidConversion = false;
+      helperMessage = 'Valor digitado superior ao saldo disponível';
+      return isValidConversion;
+    }
+    return isValidConversion = true;
+  }
+
+  bool _isConvertValueNotEmpty() {
+    if (_convertValue == Decimal.fromInt(0)) {
+      isValidConversion = false;
+
+      helperMessage = 'Valor digitado inválido';
+      return isValidConversion;
+    } else {
+      isValidConversion = true;
+      return isValidConversion;
     }
   }
 

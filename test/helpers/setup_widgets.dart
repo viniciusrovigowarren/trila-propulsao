@@ -7,6 +7,7 @@ import 'package:trilha_propulsao/convert/provider/convert_provider.dart';
 import 'package:trilha_propulsao/core/routes.dart';
 import 'package:trilha_propulsao/portifolio/controller/wallet_controller.dart';
 import 'package:trilha_propulsao/portifolio/provider/provider.dart';
+import 'package:trilha_propulsao/shared/repository/coin_prices_repository_provider.dart';
 import 'package:trilha_propulsao/transactions/controller/transactions_controler.dart';
 import 'package:trilha_propulsao/transactions/provider/transactions_provider.dart';
 import 'package:trilha_propulsao/transactions/repository/transactions_repository.dart';
@@ -31,6 +32,7 @@ class SetupTeste extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DataFake mockData = DataFake();
+
     WalletController walletController = WalletController();
     ConvertController convertController = ConvertController();
     convertController.currentAssetPrice = 244;
@@ -47,9 +49,14 @@ class SetupTeste extends StatelessWidget {
     final convertControllerProviderMock = ChangeNotifierProvider(
       (ref) => ConvertController(),
     );
+    final coinPricesRepositoryProviderMock = ChangeNotifierProvider(
+      (ref) => WalletController(),
+    );
 
     return ProviderScope(
       overrides: [
+        // coinPricesRepositoryProvider
+        //     .overrideWithProvider(coinPricesRepositoryProviderMock),
         convertControllerProvider
             .overrideWithProvider(convertControllerProviderMock),
         walletControllerProvider

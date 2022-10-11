@@ -11,26 +11,23 @@ class CoinList extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final walletController = ref.watch(walletControllerProvider);
 
-    return Expanded(
-      flex: 1,
-      child: RefreshIndicator(
-        displacement: 25,
-        strokeWidth: 3,
-        triggerMode: RefreshIndicatorTriggerMode.onEdge,
-        backgroundColor: const Color.fromARGB(255, 244, 43, 87),
-        color: Colors.white,
-        onRefresh: () {
-          return Future.delayed(const Duration(seconds: 1));
+    return RefreshIndicator(
+      displacement: 25,
+      strokeWidth: 3,
+      triggerMode: RefreshIndicatorTriggerMode.onEdge,
+      backgroundColor: const Color.fromARGB(255, 244, 43, 87),
+      color: Colors.white,
+      onRefresh: () {
+        return Future.delayed(const Duration(seconds: 1));
+      },
+      child: ListView.builder(
+        itemCount: walletController.coins.length,
+        itemBuilder: (context, index) {
+          return CoinItem(
+            model: walletController.coins[index],
+          );
         },
-        child: ListView.builder(
-          itemCount: walletController.coins.length,
-          itemBuilder: (context, index) {
-            return CoinItem(
-              model: walletController.coins[index],
-            );
-          },
-          physics: const BouncingScrollPhysics(),
-        ),
+        physics: const BouncingScrollPhysics(),
       ),
     );
   }
