@@ -24,10 +24,10 @@ class BodyCompletion extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 15),
-          AutoSizeText(
-            CoreString.of(context)!.sucess,
+          const AutoSizeText(
+            'Conversão efetuada',
             maxLines: 1,
-            style: const TextStyle(
+            style: TextStyle(
               color: Color.fromARGB(255, 47, 47, 51),
               fontSize: 38,
               fontWeight: FontWeight.w700,

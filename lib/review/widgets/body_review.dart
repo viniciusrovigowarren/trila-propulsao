@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-import '../../l10n/app.dart';
 import '../../shared/utils/assets.dart';
 import '../../completion/view/completion_page.dart';
 import '../../convert/provider/convert_provider.dart';
@@ -11,14 +10,13 @@ import 'line_details_conversion.dart';
 import 'title_conversion.dart';
 
 class BodyReview extends StatefulHookConsumerWidget {
-  const BodyReview({Key? key}) : super(key: key);
+  const BodyReview({super.key});
 
   @override
   BodyReviewState createState() => BodyReviewState();
 }
 
-class BodyReviewState extends ConsumerState<BodyReview>
-    with SingleTickerProviderStateMixin {
+class BodyReviewState extends ConsumerState<BodyReview> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -42,15 +40,15 @@ class BodyReviewState extends ConsumerState<BodyReview>
           child: Column(
             children: [
               LineDetailsConversion(
-                label: CoreString.of(context)!.convert,
+                label: 'Converter',
                 value: convertController.formatedConvert(),
               ),
               LineDetailsConversion(
-                label: CoreString.of(context)!.receive,
+                label: 'Receber',
                 value: convertController.formatReceive(),
               ),
               LineDetailsConversion(
-                label: CoreString.of(context)!.exc,
+                label: 'Câmbio',
                 value: convertController.formatExchange(),
               ),
               Padding(
@@ -62,7 +60,7 @@ class BodyReviewState extends ConsumerState<BodyReview>
                   height: size.height * 0.08,
                   controller: controller,
                   onPressed: convertionSucess,
-                  child: Text(CoreString.of(context)!.comp),
+                  child: const Text('Concluir conversão'),
                 ),
               )
             ],

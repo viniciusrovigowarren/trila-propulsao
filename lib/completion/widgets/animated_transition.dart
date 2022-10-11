@@ -4,8 +4,6 @@ import '../view/completion_page.dart';
 import '../../convert/view/conversion_page.dart';
 import '../../shared/utils/assets.dart';
 
-import '../../portifolio/model/coin_view_data.dart';
-
 class AnimatedTransition extends StatefulWidget {
   static const routeName = '/custon-page';
 

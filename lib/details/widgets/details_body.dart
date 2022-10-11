@@ -56,7 +56,7 @@ class BodyDetailState extends ConsumerState<DatailsBody> {
       Timer(const Duration(seconds: 1), () {
         setState(() {});
       });
-      return LoadingDetails(size: size);
+      return const LoadingDetails();
     });
   }
 }

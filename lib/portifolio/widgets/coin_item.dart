@@ -15,6 +15,7 @@ class CoinItem extends HookConsumerWidget {
     super.key,
     required this.model,
   });
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final detailController = ref.watch(detailControllerProvider);
@@ -25,12 +26,11 @@ class CoinItem extends HookConsumerWidget {
       onTap: () {
         walletController.selectedWalletCoin = model;
         detailController.coin = model.coin;
-        final coinHistoryPriceProvider = ref.refresh(coinHistoryPricesProvider);
 
         Navigator.pushNamed(context, DetailsPage.routeName, arguments: model);
       },
       child: Container(
-        height: size.height * .12,
+        height: size.height * 0.1195,
         decoration: const BoxDecoration(
           color: Colors.white,
           border: Border(
@@ -42,7 +42,9 @@ class CoinItem extends HookConsumerWidget {
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-              horizontal: size.width * .03, vertical: size.height * .02),
+            horizontal: size.width * .03,
+            vertical: size.height * .02,
+          ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -50,7 +52,9 @@ class CoinItem extends HookConsumerWidget {
               CoinBalanceDetail(model: model),
               Padding(
                 padding: EdgeInsets.only(
-                    top: size.height * .009, left: size.width * .04),
+                  top: size.height * .009,
+                  left: size.width * .04,
+                ),
                 child: const Icon(
                   Icons.arrow_forward_ios_sharp,
                   size: 14,
