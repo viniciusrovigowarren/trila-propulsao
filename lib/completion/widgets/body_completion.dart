@@ -13,8 +13,8 @@ class BodyCompletion extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: const [
-          CircleAvatar(
+        children: [
+          const CircleAvatar(
             backgroundColor: Color.fromARGB(255, 214, 255, 223),
             radius: 32,
             child: Icon(
@@ -23,8 +23,8 @@ class BodyCompletion extends StatelessWidget {
               size: 30,
             ),
           ),
-          SizedBox(height: 15),
-          AutoSizeText(
+          const SizedBox(height: 15),
+          const AutoSizeText(
             'Conversão efetuada',
             maxLines: 1,
             style: TextStyle(
@@ -33,11 +33,11 @@ class BodyCompletion extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           AutoSizeText(
-            'Conversão de moeda efetuada com sucesso!',
+            CoreString.of(context)!.sucessM,
             maxLines: 1,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color.fromARGB(255, 117, 118, 128),
               fontSize: 17,
             ),
