@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../model/coin_view_data.dart';
+import '../../portifolio/model/coin_view_data.dart';
 
 class AllCoinsController extends ChangeNotifier {
   late List<CoinViewData> coins;

@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:trilha_propulsao/convert/controller/convert_controller.dart';
 import 'package:trilha_propulsao/convert/provider/convert_provider.dart';
 import 'package:trilha_propulsao/core/routes.dart';
-import 'package:trilha_propulsao/portifolio/controller/allcoins_controller.dart';
+import 'package:trilha_propulsao/convert/controller/allcoins_controller.dart';
 import 'package:trilha_propulsao/portifolio/controller/wallet_controller.dart';
 import 'package:trilha_propulsao/portifolio/provider/provider.dart';
 import 'package:trilha_propulsao/shared/repository/coin_prices_repository_provider.dart';

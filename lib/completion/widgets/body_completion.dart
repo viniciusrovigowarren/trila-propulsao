@@ -4,18 +4,15 @@ import 'package:flutter/material.dart';
 import '../../l10n/app.dart';
 
 class BodyCompletion extends StatelessWidget {
-  const BodyCompletion({
-    Key? key,
-  }) : super(key: key);
+  const BodyCompletion({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      //
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
-          const CircleAvatar(
+        children: const [
+          CircleAvatar(
             backgroundColor: Color.fromARGB(255, 214, 255, 223),
             radius: 32,
             child: Icon(
@@ -24,8 +21,8 @@ class BodyCompletion extends StatelessWidget {
               size: 30,
             ),
           ),
-          const SizedBox(height: 15),
-          const AutoSizeText(
+          SizedBox(height: 15),
+          AutoSizeText(
             'Conversão efetuada',
             maxLines: 1,
             style: TextStyle(
@@ -34,11 +31,11 @@ class BodyCompletion extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
           AutoSizeText(
-            CoreString.of(context)!.sucessM,
+            'Conversão de moeda efetuada com sucesso!',
             maxLines: 1,
-            style: const TextStyle(
+            style: TextStyle(
               color: Color.fromARGB(255, 117, 118, 128),
               fontSize: 17,
             ),

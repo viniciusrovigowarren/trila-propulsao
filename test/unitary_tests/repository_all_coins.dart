@@ -17,12 +17,16 @@ void main() {
     coinRepository = CoinRepository(coinEndpoint: allCoinsEndPoint);
   });
   test(
-      'WHEN getAllCoins is requested by CoinRepository THEN getAllCoins from allCoinsEndPoint is called ',
+      'WHEN getAllCoins is requested THEN getAllCoins from allCoinsEndPoint is called ',
       () async {
-    when((() => allCoinsEndPoint.getAllCoins())).thenAnswer((_) async =>
-        Response(
-            data: [ApiFactory.getAllCoins()],
-            requestOptions: RequestOptions(path: faker.internet.httpUrl())));
+    when((() => allCoinsEndPoint.getAllCoins())).thenAnswer(
+      (_) async => Response(
+        data: [ApiFactory.getAllCoins()],
+        requestOptions: RequestOptions(
+          path: faker.internet.httpUrl(),
+        ),
+      ),
+    );
     await coinRepository.getAllCoins();
     verify(() => allCoinsEndPoint.getAllCoins()).called(1);
   });

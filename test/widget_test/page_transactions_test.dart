@@ -68,6 +68,22 @@ void main() {
           );
         },
       );
+      testWidgets(
+        'WHEN  initiaze MovementsList THEN build MovementItem ',
+        (WidgetTester tester) async {
+          mockNetworkImagesFor(
+            () async {
+              await loadDataPage(
+                tester,
+                MovementsList(
+                  transactions: data.getMovementList(),
+                ),
+              );
+              expect(find.byType(TransactionItem), findsAtLeastNWidgets(0));
+            },
+          );
+        },
+      );
     },
   );
 }
