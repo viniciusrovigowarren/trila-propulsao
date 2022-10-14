@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app.dart';
 import 'coin_title.dart';
 import 'wallet_balance.dart';
 
@@ -20,12 +21,12 @@ class WalletHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: const [
-          CoinTitle(),
-          WalletBalance(),
+        children: [
+          const CoinTitle(),
+          const WalletBalance(),
           Text(
-            'Valor total de moedas',
-            style: TextStyle(
+            CoreString.of(context)!.total,
+            style: const TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w500,
               color: Color.fromARGB(255, 117, 118, 128),

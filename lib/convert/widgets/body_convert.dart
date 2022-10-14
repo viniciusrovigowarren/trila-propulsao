@@ -33,7 +33,6 @@ class BodyConvertState extends ConsumerState<BodyConvert>
     coin = widget.coin ??
         ModalRoute.of(context)!.settings.arguments as CoinViewData;
     final convertController = ref.watch(convertControllerProvider);
-    // final allCoinsController = ref.watch(allCoinsControllerProvider);
     final walletController = ref.watch(walletControllerProvider);
     convertController.refresh(coin!, walletController.selectedWalletCoin);
 

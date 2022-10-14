@@ -18,3 +18,7 @@ final allCoinsProvider = FutureProvider<List<CoinViewData>>((ref) async {
 
 final walletControllerProvider =
     ChangeNotifierProvider((ref) => WalletController());
+
+final pageIndexProvider = StateProvider<int?>(
+  (ref) => null,
+);

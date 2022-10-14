@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 import 'package:trilha_propulsao/details/view/details.dart';
+import 'package:trilha_propulsao/l10n/app.dart';
+import 'package:trilha_propulsao/l10n/app_pt.dart';
 import 'package:trilha_propulsao/portifolio/view/portifolio_page.dart';
 import 'package:trilha_propulsao/portifolio/widgets/coin_balance_detail.dart';
 import 'package:trilha_propulsao/portifolio/widgets/coin_image.dart';

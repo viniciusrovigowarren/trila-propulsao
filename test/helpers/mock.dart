@@ -2,7 +2,7 @@ import 'package:decimal/decimal.dart';
 import 'package:faker/faker.dart';
 import 'package:trilha_propulsao/convert/controller/convert_controller.dart';
 import 'package:trilha_propulsao/details/controller/detail_controller.dart';
-import 'package:trilha_propulsao/portifolio/controller/allcoins_controller.dart';
+import 'package:trilha_propulsao/convert/controller/allcoins_controller.dart';
 import 'package:trilha_propulsao/portifolio/controller/wallet_controller.dart';
 import 'package:trilha_propulsao/portifolio/model/coin_view_data.dart';
 import 'package:trilha_propulsao/portifolio/model/wallet_view_data.dart';

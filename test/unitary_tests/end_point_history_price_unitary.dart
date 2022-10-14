@@ -3,15 +3,13 @@ import 'package:faker/faker.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:trilha_propulsao/shared/api/coin_prices_endpoint.dart';
-
 import '../helpers/api_factory.dart';
-
-class DioMock extends Mock implements Dio {}
+import 'end_point_all_coins_unitary.dart';
 
 void main() {
   late Response<Map<String, dynamic>> sucess;
   late DioMock dioMock;
-  late CoinEndpoint allCoinsEndPoint;
+  late CoinEndpoint historyPriceCoinEndPoint;
 
   When mockGetResponse() => when(
       () => dioMock.get(any(), queryParameters: any(named: 'queryParameters')));
@@ -23,15 +21,19 @@ void main() {
 
   setUp(() {
     dioMock = DioMock();
-    allCoinsEndPoint = CoinEndpoint(dioMock);
+    historyPriceCoinEndPoint = CoinEndpoint(dioMock);
   });
 
   setUp(() {
-    sucess = mockResponse(ApiFactory.getAllCoins(), 200);
+    sucess = mockResponse(ApiFactory.getCoinHistoryPrices(), 200);
   });
-  test('WHEN getAllCoins is requested THEN returns 200', (() async {
+  test('WHEN getAllCoins is requested THEN code 200', (() async {
     mockGetResponse().thenAnswer((_) async => sucess);
-    final result = await allCoinsEndPoint.getAllCoins();
+    final result = await historyPriceCoinEndPoint.getCoinHistoryPrices(
+      'etherium',
+      '75698781323',
+      '2354021823',
+    );
     expect(result.statusCode, equals(200));
   }));
 }

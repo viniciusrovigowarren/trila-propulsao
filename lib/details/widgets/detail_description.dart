@@ -27,21 +27,21 @@ class DetailDescription extends HookConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           DetailCoinValue(
-            description: 'CoreString.of(context)!.pri',
+            description: CoreString.of(context)!.pri,
             value: NumberFormat.simpleCurrency(name: 'US\$ ', decimalDigits: 2)
                 .format((model.coin.marketData!.current_price.usd)),
           ),
           CurrencyVariationValue(
-            description: 'CoreString.of(context)!.vari',
+            description: CoreString.of(context)!.vari,
             value:
                 '${(model.coin.marketData!.price_change_percentage_24h.toStringAsFixed(2)).toString()}%',
           ),
           DetailCoinValue(
-            description: 'CoreString.of(context)!.quant',
+            description: CoreString.of(context)!.quant,
             value: "${model.percent.toStringAsFixed(2)} ${model.coin.symbol}",
           ),
           DetailCoinValue(
-            description: 'CoreString.of(context)!.value',
+            description: CoreString.of(context)!.value,
             value: NumberFormat.simpleCurrency(name: 'US\$ ', decimalDigits: 2)
                 .format(
               DecimalIntl(
@@ -107,7 +107,7 @@ class ConvertButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
-          'CoreString.of(context)!.conv',
+          CoreString.of(context)!.conv,
           style: TextStyle(
             fontFamily: "Mansny regular",
             color: Colors.white,

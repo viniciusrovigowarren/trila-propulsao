@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/app.dart';
 
 class BodyCompletion extends StatelessWidget {
-  const BodyCompletion({
-    Key? key,
-  }) : super(key: key);
+  const BodyCompletion({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +22,10 @@ class BodyCompletion extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 15),
-          const AutoSizeText(
-            'Conversão efetuada',
+          AutoSizeText(
+            CoreString.of(context)!.sucess,
             maxLines: 1,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color.fromARGB(255, 47, 47, 51),
               fontSize: 38,
               fontWeight: FontWeight.w700,

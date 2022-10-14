@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:trilha_propulsao/shared/repository/coin_prices_repository.dart';
 import '../helpers/api_factory.dart';
-import 'all_coins_repository_mock_test.dart';
+import 'repository_all_coins.dart';
 
 void main() {
   late CoinEndpointMock historyPriceCoinEndPoint;
@@ -15,11 +15,14 @@ void main() {
         CoinPricesRepository(coinEndpoint: historyPriceCoinEndPoint);
   });
   test(
-      'WHEN getCoinHistoryPrices is requested by CoinPricesRepository THEN getCoinHistoryPrices from historyPriceCoinEndPoint is called ',
+      'WHEN  CoinPricesRepository THEN getCoinHistoryPrices from historyPriceCoinEndPoint is called ',
       () async {
     when(
       (() => historyPriceCoinEndPoint.getCoinHistoryPrices(
-          'bitcoin', '1659751423', '1665021823')),
+            'etherium',
+            '75698781323',
+            '2354021823',
+          )),
     ).thenAnswer(
       (_) async => Response(
         data: ApiFactory.getCoinHistoryPrices(),
@@ -29,15 +32,15 @@ void main() {
       ),
     );
     await coinRepository.getCoinHistoryPrices(
-      'bitcoin',
-      '1659751423',
-      '1665021823',
+      'etherium',
+      '75698781323',
+      '2354021823',
     );
     verify(
       () => historyPriceCoinEndPoint.getCoinHistoryPrices(
-        'bitcoin',
-        '1659751423',
-        '1665021823',
+        'etherium',
+        '75698781323',
+        '2354021823',
       ),
     ).called(1);
   });
