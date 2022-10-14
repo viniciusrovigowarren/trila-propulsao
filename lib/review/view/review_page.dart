@@ -14,7 +14,7 @@ class ReviewPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: const Text('Revisar'),
+        title: Text(CoreString.of(context)!.rev),
       ),
       body: const BodyReview(),
     );

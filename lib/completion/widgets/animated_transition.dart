@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../../l10n/app.dart';
 import '../view/completion_page.dart';
 import '../../convert/view/conversion_page.dart';
 import '../../shared/utils/assets.dart';
@@ -83,9 +84,9 @@ class AnimatedTransitionState extends State<AnimatedTransition>
                 ),
               ),
             ),
-            const Text(
-              'Concluir conversão',
-              style: TextStyle(
+            Text(
+              CoreString.of(context)!.rev,
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 17,
               ),

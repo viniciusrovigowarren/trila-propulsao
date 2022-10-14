@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../l10n/app.dart';
 import '../../portifolio/model/coin_view_data.dart';
 import '../provider/convert_provider.dart';
 
@@ -60,9 +61,9 @@ class BottomCoinListState extends ConsumerState<BottomCoinList> {
               vertical: 25,
               horizontal: size.height * .02,
             ),
-            child: const Text(
-              'Escolha uma moeda para converter',
-              style: TextStyle(
+            child: Text(
+              CoreString.of(context)!.pick,
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 17,
                 color: Color.fromARGB(255, 47, 47, 51),
